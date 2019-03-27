@@ -1,6 +1,1 @@
-*.npy
-*.png
-*.jpg
-*.jpeg
-*.json
-
+data/
