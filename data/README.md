@@ -28,7 +28,7 @@
   * [Example JSON file](detectron/detectron_json/15974.json)
 * ```detectron_rendered_contours_1600px.zip``` [[**583.77MB .ZIP**](https://storage.googleapis.com/teenieharris/detectron/png1600/detectron_rendered_contours_1600px.zip)]
   * Zip archive containing 58696 .PNG files, each of which displays (in white pixels on a black background) the contours of people (exclusively) in the correspondingly-named Teenie Harris image. All images are scaled to 1600 pixels in their maximum dimension.
-  * [Example PNG file](detectron_rendered_contours/15974.png)
+  * [Example PNG file](detectron/detectron_rendered_contours/15974.png)
 * ```canonical_detectron_category_scores_59278rows.tsv``` [[**1.24MB ZIP**](https://storage.googleapis.com/teenieharris/detectron/tsv/canonical_detectron_category_scores_59278rows.tsv.zip)]
   * This file reports, for every Teenie Harris image, the confidence scores (0...1) that each of the Detectron categories appears in that image.
   * In cases where an image contains more than one detected object with that class category, this file reports the *maximum* confidence score encountered in that image. 
