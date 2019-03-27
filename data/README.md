@@ -12,15 +12,23 @@
 *Analysis of the Teenie Harris archive using the [Imagga](https://imagga.com/) image analysis service, including a wide range of semantic descriptors and confidence values.*
 
 * ```imagga_analyses_of_teenie_harris_archive.zip``` [[**106MB ZIP**](https://storage.googleapis.com/teenieharris/imagga/json/imagga_analyses_of_teenie_harris_archive.zip)]
-  * Zip archive containing 59,190 JSON files. 
+  * Zip archive containing 59,190 JSON files. Input images were 1600 pixels in their maximum dimension.
   * [Example JSON file](imagga/json/result_Box_100_15974.png.json).
+
+---
+### Google Vision API
+
+*Results of analysis using the Google Vision API on the TeenieHarris 1600-pixel PNG images. Information includes face landmarks, object recognition, facial expression analysis, and optical character recognition (OCR).*
+
+* ```google_analyses_of_teenie_harris_archive.zip``` [[**321.21MB .ZIP**](https://storage.googleapis.com/teenieharris/google/json/google_analyses_of_teenie_harris_archive.zip)]
+  * ZIP archive containing 59,278 JSON files, each describing a corresponding  Teenie Harris image. Input images were 1600 pixels in their maximum dimension. 
+  * [Example JSON file](google/json/visionResult_Box100_15974.json).
+
 
 ---
 ### Detectron
 
 *Distillation of multi-category object detection using the [Facebook Detectron/COCO](https://github.com/facebookresearch/Detectron) object detector.*
-
-
 
 * ```detectron_categories.txt``` [[**1kb .TXT**](detectron/detectron_categories.txt)]
   * The ordered list of 80 Detectron/COCO categories, taken from [here](https://gist.github.com/AruniRC/7b3dadd004da04c80198557db5da4bda).
