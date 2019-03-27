@@ -1,5 +1,6 @@
 # Teenie Harris Project
 
+---
 ### Teenie Harris Files
 
 * ```canonical_filename_order.txt``` [**[1.1MB .TXT](canonical_filename_order.txt)**]
@@ -27,7 +28,7 @@
   * Zip archive containing 58696 JSON files. Each JSON file containins contours of objects (and their category labels) calculated by the Facebook Detectron system. Contour vertex coordinates are scaled to input images whose maximum dimension was 1600 pixels. 
   * [Example JSON file](detectron/detectron_json/15974.json)
 * ```detectron_rendered_contours_1600px.zip``` [[**583.77MB .ZIP**](https://storage.googleapis.com/teenieharris/detectron/png1600/detectron_rendered_contours_1600px.zip)]
-  * Zip archive containing 58696 .PNG files, each of which displays (in white pixels on a black background) the contours of people (exclusively) in the correspondingly-named Teenie Harris image. All images are scaled to 1600 pixels in their maximum dimension.
+  * Zip archive containing 58696 .PNG files, each of which displays (in white pixels on a black background) the contours of people (exclusively) in the correspondingly-named Teenie Harris image. Only contours of people are shown. All images are scaled to 1600 pixels in their maximum dimension.
   * [Example PNG file](detectron/detectron_rendered_contours/15974.png)
 * ```canonical_detectron_category_scores_59278rows.tsv``` [[**1.24MB ZIP**](https://storage.googleapis.com/teenieharris/detectron/tsv/canonical_detectron_category_scores_59278rows.tsv.zip)]
   * This file reports, for every Teenie Harris image, the confidence scores (0...1) that each of the Detectron categories appears in that image.
