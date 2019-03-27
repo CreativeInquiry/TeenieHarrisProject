@@ -1,3 +1,0 @@
-
-* ```detectron_categories.txt``` 
-
