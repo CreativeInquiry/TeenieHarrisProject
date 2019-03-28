@@ -59,5 +59,23 @@
 * ```detectron_category_counts_boxorder_58696rows.tsv``` [[**595kb .ZIP**](https://storage.googleapis.com/teenieharris/detectron/tsv/detectron_category_counts_boxorder_58696rows.tsv.zip)]
   * Same as the above, but this file reports the *count of instances* for each category. An image with 3 cars will have the integer '3' in the column corresponding to automobiles.
 
-### MORE
+---
+### OpenFace
 
+*[OpenFace](https://cmusatyalab.github.io/openface/) is a Python and Torch implementation of face recognition with deep neural networks.*
+
+* ```openface_json.zip``` [[**278.03 MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/json/openface_json.zip)]
+  * 59278 JSON files
+* ```filenames.csv.zip``` [[**250kb .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/filenames.csv.zip)]
+* ```descriptors.npy``` [[**240MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/descriptors.npy)]
+* ```images.npy``` [[**240MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/images.npy)]
+* ```indices.npy``` [[**1.8MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/indices.npy)]
+
+---
+### OpenFace Ellipses
+
+* ```openface_ellipses_png640.zip``` [[**86.15MB .ZIP**](https://storage.googleapis.com/teenieharris/openface_ellipses/png640/openface_ellipses_png640.zip)]
+  * 59278 .PNG files, max dimension 640
+  * [Example PNG image]()
+* ```openface_ellipses_images_32.npy``` [[**57.89 MB .ZIP**](https://storage.googleapis.com/teenieharris/openface_ellipses/npy32/openface_ellipses_images_32.npy)]
+  * 32x32 
