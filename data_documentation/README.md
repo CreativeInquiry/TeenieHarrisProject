@@ -1,9 +1,12 @@
-# Teenie Harris Project
+# Teenie Harris Archive Project
+
+
+![*Woman with Elephant* by Teenie Harris](photos/png640/15974.png) <br />*Woman with Elephant* (image file #15974) by Charles 'Teenie' Harris
 
 ---
 ### Teenie Harris Files
 
-* ```canonical_filename_order.txt``` [**[1.1MB .TXT](canonical_filename_order.txt)**]
+* ```canonical_filename_order.txt``` [**[1.1MB .TXT](photos/canonical_filename_order.txt)**]
   * 59278 rows listing the "canonical order" we are using for the Teenie Harris image filenames.
 
 ---
@@ -23,6 +26,10 @@
 * ```google_analyses_of_teenie_harris_archive.zip``` [[**321.21MB .ZIP**](https://storage.googleapis.com/teenieharris/google/json/google_analyses_of_teenie_harris_archive.zip)]
   * ZIP archive containing 59,278 JSON files, each describing a corresponding  Teenie Harris image. Input images were 1600 pixels in their maximum dimension. 
   * [Example JSON file](google/json/visionResult_Box100_15974.json).
+
+---
+### Microsoft Cognitive Services API
+
 
 
 ---
@@ -62,10 +69,11 @@
 ---
 ### OpenFace
 
-*[OpenFace](https://cmusatyalab.github.io/openface/) is a Python and Torch implementation of face recognition with deep neural networks.*
+*[OpenFace](https://cmusatyalab.github.io/openface/) is a Python and Torch implementation of face recognition with deep neural networks. Faces are described with a 128-dimensional vector of face-specific floats.*
 
 * ```openface_json.zip``` [[**278.03 MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/json/openface_json.zip)]
   * 59278 JSON files
+  * [Example JSON file](openface/json/15974.png.json)
 * ```filenames.csv.zip``` [[**250kb .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/filenames.csv.zip)]
 * ```descriptors.npy``` [[**240MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/descriptors.npy)]
 * ```images.npy``` [[**240MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/images.npy)]
@@ -76,6 +84,9 @@
 
 * ```openface_ellipses_png640.zip``` [[**86.15MB .ZIP**](https://storage.googleapis.com/teenieharris/openface_ellipses/png640/openface_ellipses_png640.zip)]
   * 59278 .PNG files, max dimension 640
-  * [Example PNG image]()
+  * [Example PNG image](openface_ellipses/png640/15974.png)
 * ```openface_ellipses_images_32.npy``` [[**57.89 MB .ZIP**](https://storage.googleapis.com/teenieharris/openface_ellipses/npy32/openface_ellipses_images_32.npy)]
   * 32x32 
+
+---
+### MORE
