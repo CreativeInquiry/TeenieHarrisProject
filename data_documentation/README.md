@@ -1,5 +1,10 @@
-# Teenie Harris Archive Project
+## Teenie Harris Data Documentation
 
+#### This document provides information about, and links to, key data resources for the Teenie Harris Archive Project. 
+
+The majority of the resources described here are of two main types: 
+* JSON and TSV files that provide numeric and label descriptions the content of photos (such as the coordinates of faces, identified object tags, etcetera).
+* PNG image files and NPY (Numpy) binary archives of images, which contain pixelwise information about corresponding photographs (such as estimates of an image's depth, saliency, etc.).
 
 ![*Woman with Elephant* by Teenie Harris](photos/png640/15974.png) <br />*Woman with Elephant* (image file #15974) by Charles 'Teenie' Harris
 
@@ -7,7 +12,7 @@
 ### Teenie Harris Files
 
 * ```canonical_filename_order.txt``` [**[1.1MB .TXT](photos/canonical_filename_order.txt)**]
-  * 59278 rows listing the "canonical order" we are using for the Teenie Harris image filenames.
+  * 59278 rows listing the "canonical order" we are using for the Teenie Harris image filenames. This is use
 
 ---
 ### Imagga API
@@ -40,10 +45,10 @@
 * ```detectron_categories.txt``` [[**1kb .TXT**](detectron/detectron_categories.txt)]
   * The ordered list of 80 Detectron/COCO categories, taken from [here](https://gist.github.com/AruniRC/7b3dadd004da04c80198557db5da4bda).
 * ```teenie_detectron_json.zip``` [[**2.36GB ZIP**](https://storage.googleapis.com/teenieharris/detectron/json/teenie_detectron_json.zip)]
-  * Zip archive containing 58696 JSON files. Each JSON file containins contours of objects (and their category labels) calculated by the Facebook Detectron system. Contour vertex coordinates are scaled to input images whose maximum dimension was 1600 pixels. 
+  * Zip archive containing 58,696 JSON files. Each JSON file containins contours of objects (and their category labels) calculated by the Facebook Detectron system. Contour vertex coordinates are scaled to input images whose maximum dimension was 1600 pixels. 
   * [Example JSON file](detectron/json/15974.json)
 * ```detectron_rendered_contours_1600px.zip``` [[**583.77MB .ZIP**](https://storage.googleapis.com/teenieharris/detectron/png1600/detectron_rendered_contours_1600px.zip)]
-  * Zip archive containing 58696 .PNG files, each of which displays (in white pixels on a black background) the contours of people (exclusively) in the correspondingly-named Teenie Harris image. *Only contours of people are shown.* All images are scaled to 1600 pixels in their maximum dimension.
+  * Zip archive containing 58,696 .PNG files, each of which displays (in white pixels on a black background) the contours of people (exclusively) in the correspondingly-named Teenie Harris image. *Only contours of people are shown.* All images are scaled to 1600 pixels in their maximum dimension.
   * [Example PNG file](detectron/png1600/15974.png)
 * ```images.npy``` [[**57.89MB Numpy file**](https://storage.googleapis.com/teenieharris/detectron/npy32/images.npy)]
   * Numpy binary file containing containing 59,278 .PNG files, which are 32x32 pixel versions of the rendered contour images (produced through a scaled-down centered inner crop). 
@@ -51,7 +56,7 @@
   * This file reports, for every Teenie Harris image, the confidence scores (0...1) that each of the Detectron categories appears in that image.
   * In cases where an image contains more than one detected object with that class category, this file reports the *maximum* confidence score encountered in that image. 
   * The rows of this file are in "canonical order", meaning, the sorted according to the *canonical list of files*. This canonical list (generated via 'natural sorting' can be found [here](processing_code/DetectronCategorizerReorder/data/canonical_filename_order.txt).
-  * Zero'ed rows for the 'missing' (null-detectron-data) 582 images have been appropriately inserted, so that the number of rows is 59278. 
+  * Zero'ed rows for the 'missing' (null-detectron-data) 582 images have been appropriately inserted, so that the number of rows is 59,278. 
   * Image filenames are *not* included in this file. 
   * This is a zipped file of tab-separated values (TSV). 
 * ```canonical_detectron_category_counts_59278rows.tsv``` [[**439kb .ZIP**](https://storage.googleapis.com/teenieharris/detectron/tsv/canonical_detectron_category_counts_59278rows.tsv.zip)]
@@ -61,7 +66,7 @@
   * In cases where an image contains more than one detected object with that class category, this file reports the *maximum* confidence score encountered in that image.  
   * The first column is the file name of the image, e.g. "Box_001/686.json". 
   * The rows of this file are in "box order", meaning, the order produced by Java/Processing when recursively traversing the Teenie Harris image collection.  
-  * This file only contains 58696 rows. 582 images do not have any Detectron results nor any corresponding files.
+  * This file only contains 58,696 rows. 582 images do not have any Detectron results nor any corresponding files.
   * This is a zipped file of tab-separated values (TSV).
 * ```detectron_category_counts_boxorder_58696rows.tsv``` [[**595kb .ZIP**](https://storage.googleapis.com/teenieharris/detectron/tsv/detectron_category_counts_boxorder_58696rows.tsv.zip)]
   * Same as the above, but this file reports the *count of instances* for each category. An image with 3 cars will have the integer '3' in the column corresponding to automobiles.
