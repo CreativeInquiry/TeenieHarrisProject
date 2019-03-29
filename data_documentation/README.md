@@ -201,4 +201,28 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 * ```saliency_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/saliency/npy32/)]
   * Numpy binary file containing 32x32 pixel versions of the saliency images.
 
+---
+### Embeddings
+
+*2D embeddings (dimensionally-reduced arrangements) of the Teenie Harris Archive, computed by UMAP using different analysands.*
+
+* ```embeddings_depth.zip``` [[**4.4 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_depth.zip)]
+* ```embeddings_detectron.zip``` [[**4.33 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_detectron.zip)]
+* ```embeddings_detectron_supervised.zip``` [[**4.26 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_detectron_supervised.zip)]
+* ```embeddings_face_ellipses.zip	``` [[**4.26 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_face_ellipses.zip)]
+* ```embeddings_inceptionv3_features.zip``` [[**4.31 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_inceptionv3_features.zip)]
+* ```embeddings_inceptionv3_features_supervised.zip``` [[**4.27 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_inceptionv3_features_supervised.zip)]
+* ```embeddings_inceptionv3_predictions.zip``` [[**4.19 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_inceptionv3_predictions.zip)]
+* ```embeddings_inceptionv3_predictions_supervised.zip``` [[**4.18 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_inceptionv3_predictions_supervised.zip)]
+* ```embeddings_openface.zip``` [[**17.91 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_openface.zip)]
+* ```embeddings_openface_microsoft.zip``` [[**14.45 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_openface_microsoft.zip)]
+* ```embeddings_saliency.zip``` [[**4.55 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_saliency.zip)]
+* ```embeddings_vgg_features.zip``` [[**5.01 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_vgg_features.zip)]
+* ```embeddings_vgg_features_supervised.zip``` [[**4.53 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_vgg_features_supervised.zip)]
+
+
+
+
+
+
 
