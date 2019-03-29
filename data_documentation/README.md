@@ -97,6 +97,15 @@ The majority of the resources described here are of two main types:
 * ```indices.npy``` [[**1.8MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/indices.npy)]
 
 ---
+### OpenFace+Microsoft
+
+*JSON files which merge the 128-dimensional abstract face descriptors produced by OpenFace, with the gender and age information computed by Microsoft Cognitive Services.*
+
+* ```openface_microsoft_json_faces.zip``` [[**267.57 MB**](https://storage.googleapis.com/teenieharris/openface_microsoft/json/openface_microsoft_json_faces.zip)]
+  * 59,278 JSON files, representing (for each Teenie Harris image) the faces in that image, the bounding rectangle of those faces, the 128-dimensonal openFace feature vector describing each face, and additional information (computed by Microsoft) describing the gender and age of that face.
+  * [Example JSON file](openface_microsoft/json/15974.json)
+
+---
 ### OpenFace Ellipses
 
 * ```openface_ellipses_png640.zip``` [[**86.15MB .ZIP**](https://storage.googleapis.com/teenieharris/openface_ellipses/png640/openface_ellipses_png640.zip)]
