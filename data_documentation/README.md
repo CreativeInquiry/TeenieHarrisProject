@@ -104,6 +104,11 @@ The majority of the resources described here are of two main types:
 * ```openface_microsoft_json_faces.zip``` [[**267.57 MB**](https://storage.googleapis.com/teenieharris/openface_microsoft/json/openface_microsoft_json_faces.zip)]
   * 59,278 JSON files, representing (for each Teenie Harris image) the faces in that image, the bounding rectangle of those faces, the 128-dimensonal openFace feature vector describing each face, and additional information (computed by Microsoft) describing the gender and age of that face.
   * [Example JSON file](openface_microsoft/json/15974.json)
+  * In these JSON files, face gender and age data is encoded in a one-hot field entitled `genderAndAgeOneHotData`, as follows:
+
+> * Field 0: is this data valid? 1 if Yes.
+> * Fields 1 and 2: 00 (no gender), 01 (male), 10 (female)
+> * Fields 3-22: age, in 5-year bins
 
 ---
 ### OpenFace Ellipses
