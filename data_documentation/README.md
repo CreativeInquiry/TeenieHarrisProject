@@ -180,10 +180,10 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 *An archive of .PNG images representing the estimated "depth" of the scene in every Teenie Harris image, as estimated by [FCRN Depth Prediction](https://github.com/iro-cp/FCRN-DepthPrediction) ("Deeper Depth Prediction with Fully Convolutional Residual Networks").*
 
-![Example FCRN Depth image](depth/png320/15974.png)
+<img src="depth/png320/15974.png" alt="Example FCRN Depth image" height="320"/>
 
 * ```depth_png320.zip``` [[**1.35 GB	 .ZIP**](https://storage.googleapis.com/teenieharris/depth/png320/depth_png320.zip)]
-  * 59,278 .PNG files, whose maximum dimension is 320 pixels. 
+  * 59,278 .PNG files, whose maximum dimension is 320 pixels. Lighter colors indicate pixels that are estimated to be "further away" from the camera.
   * [Example PNG image](depth/png320/15974.png)
 * ```depth_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/depth/npy32/depth_images_32x32.npy)]
   * Numpy binary file containing 32x32 pixel versions of the depth images.
@@ -196,7 +196,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 <img src="saliency/jpg640/15974.jpg" alt="Saliency" height="320"/><br />
   	
 * ```saliency_jpg640.zip``` [[**828.75 MB .ZIP**](https://storage.googleapis.com/teenieharris/saliency/jpg640/saliency_jpg640.zip)]
-  * 59,278 .JPG grayscale images, whose pixels represent an estimate of the "saliency" in that image.
+  * 59,278 .JPG grayscale images, whose pixels represent an estimate of the "saliency" in that image. Images are 640 pixels in their maximum dimension.
   * [Example JPG image](saliency/jpg640/15974.jpg)
 * ```saliency_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/saliency/npy32/)]
   * Numpy binary file containing 32x32 pixel versions of the saliency images.
