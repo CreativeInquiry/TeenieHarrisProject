@@ -17,6 +17,7 @@ The majority of the resources described here are of two main types:
 * Imagga API
 * Google Vision API
 * Microsoft Cognitive Services API
+* OpenPose
 * Detectron
 * OpenFace
 * OpenFace+Microsoft
@@ -27,8 +28,10 @@ The majority of the resources described here are of two main types:
 ---
 ### Teenie Harris Files
 
-* ```canonical_filename_order.txt``` [**[1.1MB .TXT](photos/canonical_filename_order.txt)**]
+* ```canonical_filename_order.txt``` [[**1.1MB .TXT**](photos/canonical_filename_order.txt)]
   * 59,278 rows listing the "canonical order" we are using for the Teenie Harris image filenames. 
+* ```photos_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/photos/npy32/photos_images_32x32.npy)]
+  * Very low-resolution (32x32 pixel) versions of the archive photos, encoded into a single Numpy binary file. 
 
 ---
 ### API Markup Layers
@@ -81,6 +84,14 @@ Box_001	686.png	583dfcfd1841423bb565ee29
   * Single .BSON ("Binary JSON") file, a flat file created by MongoDB containing all of the Microsoft face data.
 * ```faces.metadata.json``` [[**84 bytes**](https://storage.googleapis.com/teenieharris/microsoft/bson/faces.metadata.json)]
 
+---
+### OpenPose
+
+*Results of OpenPose (version 1.2) computed across the Teenie Harris archive. Data includes body skeletons, face landmarks, and hands.*
+
+* ```openpose_json.zip``` [[**368.97 MB .ZIP**](https://storage.googleapis.com/teenieharris/openpose/json/openpose_json.zip)]
+  * 59,278 JSON files containing skeletons (etc.) corresponding to images in the Teenie Harris photo archive.
+  * [Example JSON file](openpose/json/15974_keypoints.json)
 
 ---
 ### Detectron
@@ -188,6 +199,4 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 * ```saliency_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/saliency/npy32/)]
   * Numpy binary file containing 32x32 pixel versions of the saliency images.
 
----
-### MORE...
 
