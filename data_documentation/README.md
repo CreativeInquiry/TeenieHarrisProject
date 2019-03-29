@@ -89,6 +89,8 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 *Results of OpenPose (version 1.2) computed across the Teenie Harris archive. Data includes body skeletons, face landmarks, and hands.*
 
+<img src="openpose/openpose_15974.png" alt="Detectron sample image" height="320"/>
+
 * ```openpose_json.zip``` [[**368.97 MB .ZIP**](https://storage.googleapis.com/teenieharris/openpose/json/openpose_json.zip)]
   * 59,278 JSON files containing skeletons (etc.) corresponding to images in the Teenie Harris photo archive.
   * [Example JSON file](openpose/json/15974_keypoints.json)
