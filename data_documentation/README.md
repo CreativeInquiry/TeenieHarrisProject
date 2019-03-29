@@ -19,7 +19,7 @@ The majority of the resources described here are of two main types:
 
 *This image shows some of the markup layers calculated by various APIs and codebases, including body contours, face landmarks, and estimated skeletons.*
 
-![Markup layers](photos/api_markup.png)<br />
+<img src="photos/api_markup.png" alt="Markup layers" height="320"/><br />
 *Image #15236* by Charles 'Teenie' Harris
 
 * BLACK  - skeletons from OpenPose
@@ -71,7 +71,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 *Distillation of multi-category object detection using the [Facebook Detectron/COCO](https://github.com/facebookresearch/Detectron) object detector.*
 
-![](detectron/png1600/15974.png)
+<img src="detectron/png1600/15974.png" alt="Detectron sample image" height="320"/>
 
 * ```detectron_categories.txt``` [[**1kb .TXT**](detectron/detectron_categories.txt)]
   * The ordered list of 80 Detectron/COCO categories, taken from [here](https://gist.github.com/AruniRC/7b3dadd004da04c80198557db5da4bda).
@@ -138,7 +138,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 *Images containing (white) oriented ellipses (on a black background) that indicate the locations of faces. The face locations are taken from a mixture of Google, OpenPose, OpenFace and Microsoft (whichever has data). The face orientation angles are taken from Google API or Microsoft API, whichever has data.*
 
-![Example FCRN Depth image](face_ellipses/png640/15974.png)
+<img src="face_ellipses/png640/15974.png" alt="Example FCRN Depth image" height="320"/>
 
 * ```face_ellipses_png640.zip``` [[**86.15MB .ZIP**](https://storage.googleapis.com/teenieharris/face_ellipses/png640/face_ellipses_png640.zip)]
   * 59,278 .PNG files, whose maximum dimension is 640 pixels.
