@@ -6,13 +6,29 @@ The majority of the resources described here are of two main types:
 * JSON and TSV files that provide numeric and label descriptions the content of photos (such as the coordinates of faces, identified object tags, etcetera).
 * PNG image files and NPY (Numpy) binary archives of images, which contain pixelwise information about corresponding photographs (such as estimates of an image's depth, saliency, etc.).
 
-![*Woman with Elephant* by Teenie Harris](photos/png640/15974.png) <br />*Woman with Elephant* (image file #15974) by Charles 'Teenie' Harris
+<img src="photos/png640/15974.png" alt="Woman with Elephant by Teenie Harris" height="320"/><br />
+*Woman with Elephant* (image file #15974) by Charles 'Teenie' Harris
+
+---
+### Table of Contents
+
+* Teenie Harris Files
+* API Markup Layers
+* Imagga API
+* Google Vision API
+* Microsoft Cognitive Services API
+* Detectron
+* OpenFace
+* OpenFace+Microsoft
+* Face Ellipses
+* Depth
+* Saliency
 
 ---
 ### Teenie Harris Files
 
 * ```canonical_filename_order.txt``` [**[1.1MB .TXT](photos/canonical_filename_order.txt)**]
-  * 59,278 rows listing the "canonical order" we are using for the Teenie Harris image filenames. This is use
+  * 59,278 rows listing the "canonical order" we are using for the Teenie Harris image filenames. 
 
 ---
 ### API Markup Layers
@@ -160,4 +176,18 @@ Box_001	686.png	583dfcfd1841423bb565ee29
   * Numpy binary file containing 32x32 pixel versions of the depth images.
 
 ---
-### MORE
+### Saliency
+
+*An archive of .PNG images representing the estimated pixelwise "saliency" in every Teenie Harris image, as estimated by [SalGAN](https://github.com/imatge-upc/saliency-salgan-2017) ("SalGAN: Visual Saliency Prediction with Generative Adversarial Networks").*
+
+<img src="saliency/jpg640/15974.jpg" alt="Saliency" height="320"/><br />
+  	
+* ```saliency_jpg640.zip``` [[**828.75 MB .ZIP**](https://storage.googleapis.com/teenieharris/saliency/jpg640/saliency_jpg640.zip)]
+  * 59,278 .JPG grayscale images, whose pixels represent an estimate of the "saliency" in that image.
+  * [Example JPG image](saliency/jpg640/15974.jpg)
+* ```saliency_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/saliency/npy32/)]
+  * Numpy binary file containing 32x32 pixel versions of the saliency images.
+
+---
+### MORE...
+
