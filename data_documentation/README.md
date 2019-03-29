@@ -106,10 +106,13 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 * ```openface_json.zip``` [[**278.03 MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/json/openface_json.zip)]
   * 59,278 JSON files
   * [Example JSON file](openface/json/15974.png.json)
-* ```filenames.csv.zip``` [[**250kb .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/filenames.csv.zip)]
-* ```descriptors.npy``` [[**240MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/descriptors.npy)]
-* ```images.npy``` [[**240MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/images.npy)]
-* ```indices.npy``` [[**1.8MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/indices.npy)]
+
+*The OpenFace materials below were produced by the notebook, "Create Cropped Faces.ipynb":*
+
+* ```filenames.csv.zip``` [[**250kb .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/filenames.csv.zip)] - the filename the face was taken from
+* ```descriptors.npy``` [[**240MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/descriptors.npy)] - the OpenFace descriptor for the face
+* ```images.npy``` [[**240MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/images.npy)] - the cropped images
+* ```indices.npy``` [[**1.8MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/indices.npy)] - the index of a face within the photo
 
 ---
 ### OpenFace+Microsoft
