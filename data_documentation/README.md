@@ -17,13 +17,15 @@ The majority of the resources described here are of two main types:
 ---
 ### API Markup Layers
 
+*This image shows some of the markup layers calculated by various APIs and codebases, including body contours, face landmarks, and estimated skeletons.*
+
 ![Markup layers](photos/api_markup.png)<br />
 *Image #15236* by Charles 'Teenie' Harris
 
-* BLACK  - skeletons from openPose
-* GREEN  - face details from openPose
+* BLACK  - skeletons from OpenPose
+* GREEN  - face details from OpenPose
 * BLUE   - people contours from Detectron
-* RED    - face boxes from openFace
+* RED    - face boxes from OpenFace
 * PURPLE - face details from GoogleVision
 * CYAN   - face details from Microsoft Cognitive services
 
@@ -69,10 +71,12 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 *Distillation of multi-category object detection using the [Facebook Detectron/COCO](https://github.com/facebookresearch/Detectron) object detector.*
 
+![](detectron/png1600/15974.png)
+
 * ```detectron_categories.txt``` [[**1kb .TXT**](detectron/detectron_categories.txt)]
   * The ordered list of 80 Detectron/COCO categories, taken from [here](https://gist.github.com/AruniRC/7b3dadd004da04c80198557db5da4bda).
 * ```teenie_detectron_json.zip``` [[**2.36GB ZIP**](https://storage.googleapis.com/teenieharris/detectron/json/teenie_detectron_json.zip)]
-  * Zip archive containing 58,696 JSON files. Each JSON file containins contours of objects (and their category labels) calculated by the Facebook Detectron system. Contour vertex coordinates are scaled to input images whose maximum dimension was 1600 pixels. 
+  * Zip archive containing 58,696 JSON files. Each JSON file containins contours of objects (and their category labels) calculated by the Facebook Detectron system. This includes non-person contours. Contour vertex coordinates are scaled to input images whose maximum dimension was 1600 pixels. 
   * [Example JSON file](detectron/json/15974.json)
 * ```detectron_rendered_contours_1600px.zip``` [[**583.77MB .ZIP**](https://storage.googleapis.com/teenieharris/detectron/png1600/detectron_rendered_contours_1600px.zip)]
   * Zip archive containing 58,696 .PNG files, each of which displays (in white pixels on a black background) the contours of people (exclusively) in the correspondingly-named Teenie Harris image. *Only contours of people are shown.* All images are scaled to 1600 pixels in their maximum dimension.
@@ -122,6 +126,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 * ```openface_microsoft_json_faces.zip``` [[**267.57 MB**](https://storage.googleapis.com/teenieharris/openface_microsoft/json/openface_microsoft_json_faces.zip)]
   * 59,278 JSON files, representing (for each Teenie Harris image) the faces in that image, the bounding rectangle of those faces, the 128-dimensonal openFace feature vector describing each face, and additional information (computed by Microsoft) describing the gender and age of that face.
   * [Example JSON file](openface_microsoft/json/15974.json)
+  * Face bounding rect coordinates in these files are relative to an 800x800 image bound.
   * In these JSON files, face gender and age data is encoded in a one-hot field entitled `genderAndAgeOneHotData`, as follows:
 
 > * Field #0: is this data valid? 1 if Yes.
@@ -129,13 +134,30 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 > * Fields #3-22: age, in 5-year bins
 
 ---
-### OpenFace Ellipses
+### Face Ellipses
 
-* ```openface_ellipses_png640.zip``` [[**86.15MB .ZIP**](https://storage.googleapis.com/teenieharris/openface_ellipses/png640/openface_ellipses_png640.zip)]
+*Images containing (white) oriented ellipses (on a black background) that indicate the locations of faces. The face locations are taken from a mixture of Google, OpenPose, OpenFace and Microsoft (whichever has data). The face orientation angles are taken from Google API or Microsoft API, whichever has data.*
+
+![Example FCRN Depth image](face_ellipses/png640/15974.png)
+
+* ```face_ellipses_png640.zip``` [[**86.15MB .ZIP**](https://storage.googleapis.com/teenieharris/face_ellipses/png640/face_ellipses_png640.zip)]
   * 59,278 .PNG files, whose maximum dimension is 640 pixels.
-  * [Example PNG image](openface_ellipses/png640/15974.png)
-* ```openface_ellipses_images_32.npy``` [[**57.89 MB .ZIP**](https://storage.googleapis.com/teenieharris/openface_ellipses/npy32/openface_ellipses_images_32.npy)]
+  * [Example PNG image](face_ellipses/png640/15974.png)
+* ```face_ellipses_images_32x32.npy``` [[**57.89 MB .ZIP**](https://storage.googleapis.com/teenieharris/face_ellipses/npy32/face_ellipses_images_32x32.npy)]
   * Numpy binary file containing 32x32 pixel versions of the openface ellipse images.  
+
+---
+### Depth
+
+*An archive of .PNG images representing the estimated "depth" of the scene in every Teenie Harris image, as estimated by [FCRN Depth Prediction](https://github.com/iro-cp/FCRN-DepthPrediction) ("Deeper Depth Prediction with Fully Convolutional Residual Networks").*
+
+![Example FCRN Depth image](depth/png320/15974.png)
+
+* ```depth_png320.zip``` [[**1.35 GB	 .ZIP**](https://storage.googleapis.com/teenieharris/depth/png320/depth_png320.zip)]
+  * 59,278 .PNG files, whose maximum dimension is 320 pixels. 
+  * [Example PNG image](depth/png320/15974.png)
+* ```depth_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/depth/npy32/depth_images_32x32.npy)]
+  * Numpy binary file containing 32x32 pixel versions of the depth images.
 
 ---
 ### MORE
