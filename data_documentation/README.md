@@ -15,6 +15,19 @@ The majority of the resources described here are of two main types:
   * 59,278 rows listing the "canonical order" we are using for the Teenie Harris image filenames. This is use
 
 ---
+### API Markup Layers
+
+![Markup layers](photos/api_markup.png)<br />
+*Image #15236* by Charles 'Teenie' Harris
+
+* BLACK  - skeletons from openPose
+* GREEN  - face details from openPose
+* BLUE   - people contours from Detectron
+* RED    - face boxes from openFace
+* PURPLE - face details from GoogleVision
+* CYAN   - face details from Microsoft Cognitive services
+
+---
 ### Imagga API
 
 *Analysis of the Teenie Harris archive using the [Imagga](https://imagga.com/) image analysis service, including a wide range of semantic descriptors and confidence values.*
@@ -36,17 +49,19 @@ The majority of the resources described here are of two main types:
 ### Microsoft Cognitive Services API
 
 * ```imageOidAssociationTable.tsv.zip``` [[**427.79 KB**](https://storage.googleapis.com/teenieharris/microsoft/tsv/imageOidAssociationTable.tsv.zip)]
-  * foo
-  * bar
+  * This is a zipped .TSV (tab-separated value) file which links the Archive's box and image filenames to the imageOid UUID from the Microsoft database. The head of the file looks like this: 
+  
+```
+imageBox	imageName	imageOid
+Box_001	686.png	583dfcfd1841423bb565ee29
+```
+
 * ```microsoft_json_faces.zip``` [[**114.26 MB**](https://storage.googleapis.com/teenieharris/microsoft/json/microsoft_json_faces.zip)]
-  * foo
-  * bar
-* ```faces.bson.zip``` [[**79.64 MB**](https://storage.googleapis.com/teenieharris/microsoft/bson/faces.bson.zip)]
-  * foo
-  * bar
-* ```faces.metadata.json``` [[**84 B**](https://storage.googleapis.com/teenieharris/microsoft/bson/faces.metadata.json)]
-  * foo
-  * bar
+  * 59,272 JSON files from Microsoft Cognitive Services, including information like face landmarks, gender estimation, age estimation,  face expression ("emotion") estimation, etc. 
+  * [Example JSON file](microsoft/json/msft_15974.png.json)
+* ```faces.bson.zip``` [[**79.64 MB .BSON**](https://storage.googleapis.com/teenieharris/microsoft/bson/faces.bson.zip)]
+  * Single .BSON ("Binary JSON") file, a flat file created by MongoDB containing all of the Microsoft face data.
+* ```faces.metadata.json``` [[**84 bytes**](https://storage.googleapis.com/teenieharris/microsoft/bson/faces.metadata.json)]
 
 
 ---
@@ -106,18 +121,18 @@ The majority of the resources described here are of two main types:
   * [Example JSON file](openface_microsoft/json/15974.json)
   * In these JSON files, face gender and age data is encoded in a one-hot field entitled `genderAndAgeOneHotData`, as follows:
 
-> * Field 0: is this data valid? 1 if Yes.
-> * Fields 1 and 2: 00 (no gender), 01 (male), 10 (female)
-> * Fields 3-22: age, in 5-year bins
+> * Field #0: is this data valid? 1 if Yes.
+> * Fields #1 and #2: 00 (no gender), 01 (male), 10 (female)
+> * Fields #3-22: age, in 5-year bins
 
 ---
 ### OpenFace Ellipses
 
 * ```openface_ellipses_png640.zip``` [[**86.15MB .ZIP**](https://storage.googleapis.com/teenieharris/openface_ellipses/png640/openface_ellipses_png640.zip)]
-  * 59,278 .PNG files, max dimension 640
+  * 59,278 .PNG files, whose maximum dimension is 640 pixels.
   * [Example PNG image](openface_ellipses/png640/15974.png)
 * ```openface_ellipses_images_32.npy``` [[**57.89 MB .ZIP**](https://storage.googleapis.com/teenieharris/openface_ellipses/npy32/openface_ellipses_images_32.npy)]
-  * 32x32 
+  * Numpy binary file containing 32x32 pixel versions of the openface ellipse images.  
 
 ---
 ### MORE
