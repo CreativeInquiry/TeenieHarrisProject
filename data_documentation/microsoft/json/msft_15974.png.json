@@ -1,0 +1,276 @@
+{
+  "imageName": "15974.png",
+  "imageOid": "5873f56c12dd2e0c269f227c",
+  "faces": [
+    {
+      "sadness": 4.9060084E-8,
+      "anger": 9.145299E-9,
+      "eyeLeftBottom": {
+        "x": 747.5,
+        "y": 492.4
+      },
+      "eyeLeftOuter": {
+        "x": 742.9,
+        "y": 489.8
+      },
+      "headPose_roll": 12.2,
+      "smile": 0.158,
+      "noseTip": {
+        "x": 758.7,
+        "y": 511.6
+      },
+      "pupilRight": {
+        "x": 785,
+        "y": 496.8
+      },
+      "headPose_pitch": 0,
+      "noseRootLeft": {
+        "x": 758.1,
+        "y": 495.8
+      },
+      "height": 80,
+      "fear": 1.56329349E-9,
+      "moustache": 0,
+      "mouthLeft": {
+        "x": 739.9,
+        "y": 521.6
+      },
+      "surprise": 2.48426375E-7,
+      "upperLipTop": {
+        "x": 758.3,
+        "y": 520.5
+      },
+      "beard": 0,
+      "neutral": 5.149149E-7,
+      "upperLipBottom": {
+        "x": 757.4,
+        "y": 525.4
+      },
+      "left": 723,
+      "_id": {"$oid": "584a13181841427bcdaf3cd4"},
+      "pupilLeft": {
+        "x": 749,
+        "y": 490.1
+      },
+      "gender": "female",
+      "eyebrowLeftInner": {
+        "x": 753.7,
+        "y": 487.4
+      },
+      "eyeRightOuter": {
+        "x": 791.3,
+        "y": 498.7
+      },
+      "mouthRight": {
+        "x": 779.7,
+        "y": 530.5
+      },
+      "eyebrowRightOuter": {
+        "x": 800.2,
+        "y": 492.2
+      },
+      "top": 469,
+      "happiness": 0.999999166,
+      "noseRootRight": {
+        "x": 768.6,
+        "y": 497.5
+      },
+      "noseRightAlarTop": {
+        "x": 769.8,
+        "y": 508.2
+      },
+      "eyeRightTop": {
+        "x": 785.3,
+        "y": 494.1
+      },
+      "eyeRightBottom": {
+        "x": 784.4,
+        "y": 500.2
+      },
+      "headPose_yaw": -13.3,
+      "underLipTop": {
+        "x": 755.5,
+        "y": 538.2
+      },
+      "eyebrowRightInner": {
+        "x": 775.6,
+        "y": 490.2
+      },
+      "noseLeftAlarTop": {
+        "x": 752.8,
+        "y": 504.9
+      },
+      "eyeLeftInner": {
+        "x": 754,
+        "y": 492.9
+      },
+      "photoId": {"$oid": "584a13181841427bcdaf3cd3"},
+      "eyeRightInner": {
+        "x": 777.6,
+        "y": 497.5
+      },
+      "sideburns": 0,
+      "underLipBottom": {
+        "x": 754.2,
+        "y": 544.4
+      },
+      "contempt": 5.12064346E-9,
+      "noseLeftAlarOutTip": {
+        "x": 746.7,
+        "y": 510.1
+      },
+      "eyebrowLeftOuter": {
+        "x": 735.9,
+        "y": 482
+      },
+      "eyeLeftTop": {
+        "x": 749.5,
+        "y": 487.8
+      },
+      "width": 80,
+      "noseRightAlarOutTip": {
+        "x": 772.7,
+        "y": 515.5
+      },
+      "disgust": 1.25407871E-8,
+      "age": 17.2
+    },
+    {
+      "sadness": 4.9060084E-8,
+      "anger": 9.145299E-9,
+      "eyeLeftBottom": {
+        "x": 747.5,
+        "y": 492.4
+      },
+      "eyeLeftOuter": {
+        "x": 742.9,
+        "y": 489.8
+      },
+      "headPose_roll": 12.2,
+      "smile": 0.158,
+      "noseTip": {
+        "x": 758.7,
+        "y": 511.6
+      },
+      "d_left": 725,
+      "pupilRight": {
+        "x": 785,
+        "y": 496.8
+      },
+      "headPose_pitch": 0,
+      "noseRootLeft": {
+        "x": 758.1,
+        "y": 495.8
+      },
+      "height": 80,
+      "fear": 1.56329349E-9,
+      "moustache": 0,
+      "mouthLeft": {
+        "x": 739.9,
+        "y": 521.6
+      },
+      "surprise": 2.48426375E-7,
+      "upperLipTop": {
+        "x": 758.3,
+        "y": 520.5
+      },
+      "beard": 0,
+      "neutral": 5.149149E-7,
+      "upperLipBottom": {
+        "x": 757.4,
+        "y": 525.4
+      },
+      "left": 723,
+      "_id": {"$oid": "5873f56c12dd2e0c269f227d"},
+      "pupilLeft": {
+        "x": 749,
+        "y": 490.1
+      },
+      "gender": "female",
+      "faceDetectOverlapPercentage": 1,
+      "eyebrowLeftInner": {
+        "x": 753.7,
+        "y": 487.4
+      },
+      "eyeRightOuter": {
+        "x": 791.3,
+        "y": 498.7
+      },
+      "mouthRight": {
+        "x": 779.7,
+        "y": 530.5
+      },
+      "eyebrowRightOuter": {
+        "x": 800.2,
+        "y": 492.2
+      },
+      "top": 469,
+      "d_top": 476,
+      "happiness": 0.999999166,
+      "noseRootRight": {
+        "x": 768.6,
+        "y": 497.5
+      },
+      "noseRightAlarTop": {
+        "x": 769.8,
+        "y": 508.2
+      },
+      "eyeRightTop": {
+        "x": 785.3,
+        "y": 494.1
+      },
+      "eyeRightBottom": {
+        "x": 784.4,
+        "y": 500.2
+      },
+      "headPose_yaw": -13.3,
+      "underLipTop": {
+        "x": 755.5,
+        "y": 538.2
+      },
+      "d_width": 69,
+      "eyebrowRightInner": {
+        "x": 775.6,
+        "y": 490.2
+      },
+      "noseLeftAlarTop": {
+        "x": 752.8,
+        "y": 504.9
+      },
+      "eyeLeftInner": {
+        "x": 754,
+        "y": 492.9
+      },
+      "photoId": {"$oid": "5873f56c12dd2e0c269f227c"},
+      "eyeRightInner": {
+        "x": 777.6,
+        "y": 497.5
+      },
+      "sideburns": 0,
+      "underLipBottom": {
+        "x": 754.2,
+        "y": 544.4
+      },
+      "contempt": 5.12064346E-9,
+      "noseLeftAlarOutTip": {
+        "x": 746.7,
+        "y": 510.1
+      },
+      "eyebrowLeftOuter": {
+        "x": 735.9,
+        "y": 482
+      },
+      "eyeLeftTop": {
+        "x": 749.5,
+        "y": 487.8
+      },
+      "width": 80,
+      "noseRightAlarOutTip": {
+        "x": 772.7,
+        "y": 515.5
+      },
+      "disgust": 1.25407871E-8,
+      "age": 17.2
+    }
+  ]
+}
