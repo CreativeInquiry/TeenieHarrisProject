@@ -31,7 +31,7 @@ The majority of the resources described here are of two main types:
 * ```canonical_filename_order.txt``` [[**1.1MB .TXT**](photos/canonical_filename_order.txt)]
   * 59,278 rows listing the "canonical order" we are using for the Teenie Harris image filenames. 
 * ```photos_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/photos/npy32/photos_images_32x32.npy)]
-  * Very low-resolution (32x32 pixel) versions of the archive photos, encoded into a single Numpy binary file. 
+  * Extremely low-resolution (32x32 pixel) versions of the archive photos, encoded into a single Numpy binary file. 
 
 ---
 ### API Markup Layers
@@ -87,7 +87,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 ---
 ### OpenPose
 
-*Results of OpenPose (version 1.2) computed across the Teenie Harris archive. Data includes body skeletons, face landmarks, and hands.*
+*Results of OpenPose (version 1.2) skeleton analysis, computed across the Teenie Harris archive. The data includes body skeletons, face landmarks, and hands.*
 
 <img src="openpose/openpose_15974.png" alt="Detectron sample image" height="320"/>
 
@@ -150,17 +150,39 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 ---
 ### OpenFace+Microsoft
 
-*JSON files which merge the 128-dimensional abstract face descriptors produced by OpenFace, with the gender and age information computed by Microsoft Cognitive Services.*
+*JSON files which merge the 128-dimensional abstract face descriptors produced by OpenFace, with the gender and age information computed by Microsoft Cognitive Services. Useful for supervised UMAP/t-SNE analysis of the faces in the archive.*
 
 * ```openface_microsoft_json_faces.zip``` [[**267.57 MB**](https://storage.googleapis.com/teenieharris/openface_microsoft/json/openface_microsoft_json_faces.zip)]
   * 59,278 JSON files, representing (for each Teenie Harris image) the faces in that image, the bounding rectangle of those faces, the 128-dimensonal openFace feature vector describing each face, and additional information (computed by Microsoft) describing the gender and age of that face.
   * [Example JSON file](openface_microsoft/json/15974.json)
   * Face bounding rect coordinates in these files are relative to an 800x800 image bound.
+  * Note that this bundle only includes data for faces that are detected by *both* Microsoft (which provides estimates of age and gender) and OpenFace (which provides 128-dimensional face descriptors). This bundle does *not* contain information for faces that are not detected by both of these services.
   * In these JSON files, face gender and age data is encoded in a one-hot field entitled `genderAndAgeOneHotData`, as follows:
 
 > * Field #0: is this data valid? 1 if Yes.
 > * Fields #1 and #2: 00 (no gender), 01 (male), 10 (female)
 > * Fields #3-22: age, in 5-year bins
+
+---
+### Analysis / People-in-Images
+
+![people_in_images JSON Structure](analysis/people_in_images/people_in_images_json.png)
+
+* ```people_in_images_json.zip``` [[**2.9 GB .ZIP**](https://storage.googleapis.com/teenieharris/analysis/people_in_images/json/people_in_images_json.zip)]
+  * 59,278 JSON files (one for each Teenie Harris image] containing arrays of *people*, where each person is a concordance of spatially-aligned data from Google, Microsoft, OpenPose, and OpenFace. The data includes face landmarks, body contours, and face description data, among other fields. Note that not every person object contains data from all services. (For example, sometimes a face is detected by one service, but not by another.)
+  * [Example JSON file](analysis/people_in_images/json/people_in_images_15974.json)
+
+
+---
+### Analysis / Other
+
+* ```filename_order.txt``` [[**1.01 MB .TXT**](https://storage.googleapis.com/teenieharris/analysis/filename_order.txt)]
+* ```filename_order_box.txt``` [[**464.89 KB**](https://storage.googleapis.com/teenieharris/analysis/filename_order_box.txt)]
+* ```filename_order_id.txt``` [[**341.4 KB**](https://storage.googleapis.com/teenieharris/analysis/filename_order_id.txt)]
+
+![face_neighbors](analysis/face_neighbors/face_neighbors_json.png)
+
+* 3451 closest matches (under 0.3)
 
 ---
 ### Face Ellipses
@@ -242,8 +264,6 @@ And
 * ```0.001_03-assignment_openface_microsoft.npy``` [[**1.59 MB .NPY**](https://storage.googleapis.com/teenieharris/assignments/0.001_03-assignment_openface_microsoft.npy)]
 * ```0.100_03-assignment_openface.npy``` [[**1.87 MB .NPY**](https://storage.googleapis.com/teenieharris/assignments/0.100_03-assignment_openface.npy)]
 * ```0.100_03-assignment_saliency.npy``` [[**461.4 KB .NPY**](https://storage.googleapis.com/teenieharris/assignments/0.100_03-assignment_saliency.npy)]
-
-
 
 
 
