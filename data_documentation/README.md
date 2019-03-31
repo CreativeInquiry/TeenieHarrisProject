@@ -13,9 +13,9 @@ The majority of the resources described here are of two main types:
 ---
 ### Table of Contents
 
-* Teenie Harris Files
+* [Teenie Harris Files](#teenie-harris-files)
 * API Markup Layers
-* Imagga API
+* [Imagga API](#imagga-api)
 * Google Vision API
 * Microsoft Cognitive Services API
 * OpenPose
