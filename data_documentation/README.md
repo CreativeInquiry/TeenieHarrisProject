@@ -3,11 +3,11 @@
 #### This document provides information about, and links to, key data resources for the CMU+CMoA Teenie Harris Archive Analysis Project. 
 
 The majority of the resources described here are of two main types: 
-* JSON and TSV files that provide numeric and label descriptions the content of photos (such as the coordinates of faces, identified object tags, etcetera).
+* JSON, TSV and other text files that provide numeric and label descriptions of the content of photos (such as the coordinates of faces, identified object tags, etcetera).
 * PNG image files and NPY (Numpy) binary archives of images, which contain pixelwise information about corresponding photographs (such as estimates of an image's depth, saliency, etc.).
 
 <img src="photos/png640/15974.png" alt="Woman with Elephant by Teenie Harris" height="320"/><br />
-*Woman with Elephant* (image file #15974) by Charles 'Teenie' Harris
+*Woman with Elephant* (Box 100, Image #15974) by Charles 'Teenie' Harris
 
 
 ---
@@ -32,6 +32,7 @@ The majority of the resources described here are of two main types:
 * [Assignments](#assignments)
 * [Credits](#credits)
 
+
 ---
 ### Teenie Harris Files
 
@@ -40,13 +41,14 @@ The majority of the resources described here are of two main types:
 * ```photos_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/photos/npy32/photos_images_32x32.npy)]
   * Extremely low-resolution (32x32 pixel) versions of the archive photos, encoded into a single Numpy binary file. 
 
+
 ---
 ### API Markup Layers
 
-*This image shows some of the markup layers calculated by various APIs and codebases, including body contours, face landmarks, and estimated skeletons.*
+*This image summarizes many of the markup layers calculated by various APIs and codebases, including body contours, face landmarks, and estimated skeletons.*
 
 <img src="photos/api_markup.png" alt="Markup layers" height="320"/><br />
-*Image #15236* by Charles 'Teenie' Harris
+Markup layers in *Image #15236* by Charles 'Teenie' Harris
 
 * BLACK  - skeletons from OpenPose
 * GREEN  - face details from OpenPose
@@ -55,6 +57,7 @@ The majority of the resources described here are of two main types:
 * PURPLE - face details from GoogleVision
 * CYAN   - face details from Microsoft Cognitive services
 
+
 ---
 ### Imagga API
 
@@ -62,7 +65,8 @@ The majority of the resources described here are of two main types:
 
 * ```imagga_analyses_of_teenie_harris_archive.zip``` [[**106MB ZIP**](https://storage.googleapis.com/teenieharris/imagga/json/imagga_analyses_of_teenie_harris_archive.zip)]
   * Zip archive containing 59,190 JSON files. Input images were 1600 pixels in their maximum dimension.
-  * [Example JSON file](imagga/json/result_Box_100_15974.png.json).
+  * [Example JSON file](imagga/json/result_Box_100_15974.png.json) for image #15974.
+
 
 ---
 ### Google Vision API
@@ -71,7 +75,8 @@ The majority of the resources described here are of two main types:
 
 * ```google_analyses_of_teenie_harris_archive.zip``` [[**321.21MB .ZIP**](https://storage.googleapis.com/teenieharris/google/json/google_analyses_of_teenie_harris_archive.zip)]
   * ZIP archive containing 59,278 JSON files, each describing a corresponding  Teenie Harris image. Input images were 1600 pixels in their maximum dimension. 
-  * [Example JSON file](google/json/visionResult_Box100_15974.json).
+  * [Example JSON file](google/json/visionResult_Box100_15974.json) for image #15974.
+
 
 ---
 ### Microsoft Cognitive Services API
@@ -80,7 +85,7 @@ The majority of the resources described here are of two main types:
 
 * ```microsoft_json_faces.zip``` [[**114.26 MB**](https://storage.googleapis.com/teenieharris/microsoft/json/microsoft_json_faces.zip)]
   * 59,272 JSON files produced by Microsoft Cognitive Services.
-  * [Example JSON file](microsoft/json/msft_15974.png.json)
+  * [Example JSON file](microsoft/json/msft_15974.png.json) for image #15974.
 * ```faces.bson.zip``` [[**79.64 MB .BSON**](https://storage.googleapis.com/teenieharris/microsoft/bson/faces.bson.zip)]
   * Single .BSON ("Binary JSON") file, a flat file created by MongoDB containing all of the Microsoft face data.
 * ```faces.metadata.json``` [[**84 bytes**](https://storage.googleapis.com/teenieharris/microsoft/bson/faces.metadata.json)]
@@ -101,7 +106,8 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 * ```openpose_json.zip``` [[**368.97 MB .ZIP**](https://storage.googleapis.com/teenieharris/openpose/json/openpose_json.zip)]
   * 59,278 JSON files containing skeletons (etc.) corresponding to images in the Teenie Harris photo archive.
-  * [Example JSON file](openpose/json/15974_keypoints.json)
+  * [Example JSON file](openpose/json/15974_keypoints.json) for image #15974.
+
 
 ---
 ### Detectron
@@ -114,10 +120,10 @@ Box_001	686.png	583dfcfd1841423bb565ee29
   * The ordered list of 80 Detectron/COCO categories, taken from [here](https://gist.github.com/AruniRC/7b3dadd004da04c80198557db5da4bda).
 * ```teenie_detectron_json.zip``` [[**2.36GB ZIP**](https://storage.googleapis.com/teenieharris/detectron/json/teenie_detectron_json.zip)]
   * Zip archive containing 58,696 JSON files. Each JSON file containins contours of objects (and their category labels) calculated by the Facebook Detectron system. This includes non-person contours. Contour vertex coordinates are scaled to input images whose maximum dimension was 1600 pixels. 
-  * [Example JSON file](detectron/json/15974.json)
+  * [Example JSON file](detectron/json/15974.json) for image #15974.
 * ```detectron_rendered_contours_1600px.zip``` [[**583.77MB .ZIP**](https://storage.googleapis.com/teenieharris/detectron/png1600/detectron_rendered_contours_1600px.zip)]
   * Zip archive containing 58,696 .PNG files, each of which displays (in white pixels on a black background) the contours of people (exclusively) in the correspondingly-named Teenie Harris image. *Only contours of people are shown.* All images are scaled to 1600 pixels in their maximum dimension.
-  * [Example PNG file](detectron/png1600/15974.png)
+  * [Example PNG file](detectron/png1600/15974.png) for image #15974.
 * ```images.npy``` [[**57.89MB Numpy file**](https://storage.googleapis.com/teenieharris/detectron/npy32/images.npy)]
   * Numpy binary file containing containing 59,278 .PNG files, which are 32x32 pixel versions of the rendered contour images (produced through a scaled-down centered inner crop). 
 * ```canonical_detectron_category_scores_59278rows.tsv``` [[**1.24MB ZIP**](https://storage.googleapis.com/teenieharris/detectron/tsv/canonical_detectron_category_scores_59278rows.tsv.zip)]
@@ -139,6 +145,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 * ```detectron_category_counts_boxorder_58696rows.tsv``` [[**595kb .ZIP**](https://storage.googleapis.com/teenieharris/detectron/tsv/detectron_category_counts_boxorder_58696rows.tsv.zip)]
   * Same as the above, but this file reports the *count of instances* for each category. An image with 3 cars will have the integer '3' in the column corresponding to automobiles.
 
+
 ---
 ### OpenFace
 
@@ -148,7 +155,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 * ```openface_json.zip``` [[**278.03 MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/json/openface_json.zip)]
   * 59,278 JSON files containing data about the faces that appear in each Teenie Harris image.
-  * [Example JSON file](openface/json/15974.png.json)
+  * [Example JSON file](openface/json/15974.png.json) for image #15974.
 
 *The OpenFace materials below were produced by the notebook, "Create Cropped Faces.ipynb":*
 
@@ -156,6 +163,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 * ```descriptors.npy``` [[**240MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/descriptors.npy)] - the OpenFace descriptor for the face
 * ```images.npy``` [[**240MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/images.npy)] - the cropped images
 * ```indices.npy``` [[**1.8MB .ZIP**](https://storage.googleapis.com/teenieharris/openface/npy32/indices.npy)] - the index of a face within the photo
+
 
 ---
 ### OpenFace+Microsoft
@@ -166,7 +174,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 * ```openface_microsoft_json_faces.zip``` [[**267.57 MB**](https://storage.googleapis.com/teenieharris/openface_microsoft/json/openface_microsoft_json_faces.zip)]
   * 59,278 JSON files, representing (for each Teenie Harris image) the faces in that image, the bounding rectangle of those faces, the 128-dimensonal openFace feature vector describing each face (`rep`), and additional information (computed by Microsoft) describing the gender and age of that face.
-  * [Example JSON file](openface_microsoft/json/15974.json)
+  * [Example JSON file](openface_microsoft/json/15974.json) for image #15974.
   * Face bounding rect coordinates in these files are relative to an 800x800 image bound.
   * Note that this bundle only includes data for faces that are detected by *both* Microsoft (which provides estimates of age and gender) and OpenFace (which provides 128-dimensional face descriptors). This bundle does *not* contain information for faces that are not detected by both of these services.
   * In these JSON files, face gender and age data is encoded in a one-hot field entitled `genderAndAgeOneHotData`, as follows:
@@ -175,6 +183,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 > * Fields #1 and #2: 00 (no gender), 01 (male), 10 (female)
 > * Fields #3-22: age, in 5-year bins
 
+
 ---
 ### Analysis / People-in-Images
 
@@ -182,7 +191,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 * ```people_in_images_json.zip``` [[**2.9 GB .ZIP**](https://storage.googleapis.com/teenieharris/analysis/people_in_images/json/people_in_images_json.zip)]
   * 59,278 JSON files (one for each Teenie Harris image] containing arrays of *people*, where each person is a concordance of spatially-aligned data from Google, Microsoft, OpenPose, and OpenFace. The data includes face landmarks, body contours, and face description data, among other fields. In other words, face bounding boxes from all four services have been checked against each other and aligned, and grouped by person. Note that not every person object contains data from all four services. (For example, sometimes a face is detected by one service, but not by another.)
-  * [Example JSON file](analysis/people_in_images/json/people_in_images_15974.json)
+  * [Example JSON file](analysis/people_in_images/json/people_in_images_15974.json) for image #15974.
 
 
 ---
@@ -197,6 +206,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 * ```face-neighbors.json``` [[**939 KB .JSON**](https://storage.googleapis.com/teenieharris/analysis/face_neighbors/face-neighbors.json)]
   * The 3,451 closest-matching faces (i.e. with mutual distances under 0.3). 
 
+
 ---
 ### Face Ellipses
 
@@ -206,9 +216,10 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 * ```face_ellipses_png640.zip``` [[**86.15MB .ZIP**](https://storage.googleapis.com/teenieharris/face_ellipses/png640/face_ellipses_png640.zip)]
   * 59,278 .PNG files, whose maximum dimension is 640 pixels.
-  * [Example PNG image](face_ellipses/png640/15974.png)
+  * [Example PNG image](face_ellipses/png640/15974.png) for image #15974.
 * ```face_ellipses_images_32x32.npy``` [[**57.89 MB .ZIP**](https://storage.googleapis.com/teenieharris/face_ellipses/npy32/face_ellipses_images_32x32.npy)]
   * Numpy binary file containing 32x32 pixel versions of the openface ellipse images.  
+
 
 ---
 ### Depth
@@ -219,9 +230,10 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 * ```depth_png320.zip``` [[**1.35 GB	 .ZIP**](https://storage.googleapis.com/teenieharris/depth/png320/depth_png320.zip)]
   * 59,278 .PNG files, whose maximum dimension is 320 pixels. Lighter colors indicate pixels that are estimated to be "further away" from the camera.
-  * [Example PNG image](depth/png320/15974.png)
+  * [Example PNG image](depth/png320/15974.png) for image #15974.
 * ```depth_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/depth/npy32/depth_images_32x32.npy)]
   * Numpy binary file containing 32x32 pixel versions of the depth images.
+
 
 ---
 ### Saliency
@@ -232,7 +244,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
   	
 * ```saliency_jpg640.zip``` [[**828.75 MB .ZIP**](https://storage.googleapis.com/teenieharris/saliency/jpg640/saliency_jpg640.zip)]
   * 59,278 .JPG grayscale images, whose pixels represent an estimate of the "saliency" in that image. Images are 640 pixels in their maximum dimension.
-  * [Example JPG image](saliency/jpg640/15974.jpg)
+  * [Example JPG image](saliency/jpg640/15974.jpg) for image #15974.
 * ```saliency_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/saliency/npy32/)]
   * Numpy binary file containing 32x32 pixel versions of the saliency images.
 
@@ -254,6 +266,7 @@ And
 * ```features_vgg.csv.zip``` [[**246.31 MB .ZIP**](https://storage.googleapis.com/teenieharris/dcnn/vgg/features_vgg.csv.zip)]
 * ```filenames_vgg.txt.zip``` [[**131.7 KB .ZIP**](https://storage.googleapis.com/teenieharris/dcnn/vgg/filenames_vgg.txt.zip)]
 
+
 ---
 ### Embeddings
 
@@ -273,6 +286,7 @@ And
 * ```embeddings_vgg_features.zip``` [[**5.01 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_vgg_features.zip)]
 * ```embeddings_vgg_features_supervised.zip``` [[**4.53 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_vgg_features_supervised.zip)]
 
+
 ---
 ### Assignments
 
@@ -281,6 +295,7 @@ And
 * ```0.001_03-assignment_openface_microsoft.npy``` [[**1.59 MB .NPY**](https://storage.googleapis.com/teenieharris/assignments/0.001_03-assignment_openface_microsoft.npy)]
 * ```0.100_03-assignment_openface.npy``` [[**1.87 MB .NPY**](https://storage.googleapis.com/teenieharris/assignments/0.100_03-assignment_openface.npy)]
 * ```0.100_03-assignment_saliency.npy``` [[**461.4 KB .NPY**](https://storage.googleapis.com/teenieharris/assignments/0.100_03-assignment_saliency.npy)]
+
 
 ---
 ### Credits
