@@ -14,23 +14,23 @@ The majority of the resources described here are of two main types:
 ### Table of Contents
 
 * [Teenie Harris Files](#teenie-harris-files)
-* API Markup Layers
+* [API Markup Layers](#api-markup-layers)
 * [Imagga API](#imagga-api)
-* Google Vision API
-* Microsoft Cognitive Services API
-* OpenPose
-* Detectron
-* OpenFace
-* OpenFace+Microsoft
-* Analysis / People-in-Images
-* Analysis / Other
-* Face Ellipses
-* Depth
-* Saliency
-* DCNN
-* Embeddings
-* Assignments
-* Credits
+* [Google Vision API](#google-vision-api)
+* [Microsoft Cognitive Services API](#microsoft-cognitive-services-api)
+* [OpenPose](#openpose)
+* [Detectron](#detectron)
+* [OpenFace](#openface)
+* [OpenFace+Microsoft](#openfacemicrosoft)
+* [Analysis: People-in-Images](#analysis--people-in-images)
+* [Analysis: Other](#analysis--other)
+* [Face Ellipses](#face-ellipses)
+* [Depth](#depth)
+* [Saliency](#saliency)
+* [DCNN](#dcnn)
+* [Embeddings](#embeddings)
+* [Assignments](#assignments)
+* [Credits](#credits)
 
 ---
 ### Teenie Harris Files
