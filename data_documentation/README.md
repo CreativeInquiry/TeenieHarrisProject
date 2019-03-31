@@ -2,12 +2,12 @@
 
 #### This document provides information about, and links to, key data resources for the CMU+CMoA Teenie Harris Archive Analysis Project. 
 
-The majority of the resources described here are of two main types: 
+Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https://console.cloud.google.com/storage/browser/teenieharris). The majority of the resources described here are of two main types: 
 * JSON, TSV and other text files that provide numeric and label descriptions of the content of photos (such as the coordinates of faces, identified object tags, etcetera).
 * PNG image files and NPY (Numpy) binary archives of images, which contain pixelwise information about corresponding photographs (such as estimates of an image's depth, saliency, etc.).
 
 <img src="photos/png640/15974.png" alt="Woman with Elephant by Teenie Harris" height="320"/><br />
-*Woman with Elephant* (Box 100, Image #15974) by Charles 'Teenie' Harris
+*Woman in leotard posing with elephant, possibly for a circus* (Box 100, Image #15974) by Charles 'Teenie' Harris, c. 1950-1970 (© Carnegie Museum of Art, Charles “Teenie” Harris Archive, [2001.35.8192](https://collection.cmoa.org/objects/afb9ec17-bb48-440b-92d4-8f747ef0b83e))
 
 
 ---
@@ -35,6 +35,8 @@ The majority of the resources described here are of two main types:
 
 ---
 ### Teenie Harris Files
+
+*Owing to permissions, the photographs in the Teenie Harris Archive are not available here. However, some 59,000 works in the Archive may be browsed at [collection.cmoa.org](https://collection.cmoa.org/?department=Fine%20Arts%3A%20Teenie%20Harris%20Archive&dir=desc&page=1&perPage=100).*
 
 * ```canonical_filename_order.txt``` [[**1.1MB .TXT**](photos/canonical_filename_order.txt)]
   * 59,278 rows listing the "canonical order" we are using for the Teenie Harris image filenames. 
