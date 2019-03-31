@@ -1,6 +1,6 @@
 // Program to generate contour images from detectron JSON contour data.
 
-boolean bDoSaveOutput = false; // main switch
+boolean bDoSavePNGOutput = false; // main switch. Set true for PNG output
 String pathToJsons;
 float imageScale = 0.5;
 
@@ -24,7 +24,8 @@ void setup() {
   frameRate(3); 
 
   // String pathToJsons = "/Volumes/zariaTeenie/TEENIE/data_from_detectron/Teenie_detectron/Teenie_detectron_json_boxed/";
-  String pathToJsons = sketchPath() + "/data/detectron_sample_jsons/"; 
+  String pathToJsons = sketchPath() + "/input_detectron_sample_jsons/"; 
+  println(pathToJsons);
 
   arrayListOfJsonFilenames = new ArrayList<String>();
   arrayListOfFiles = listFilesRecursive(pathToJsons); 
@@ -74,9 +75,9 @@ void draw() {
   String justTheJsonFilename = currentContourJsonFilename.substring(indexOfLastSlash, lastCharIndex); 
   int lastDotIndex = justTheJsonFilename.lastIndexOf('.'); 
   String justTheNumber = justTheJsonFilename.substring(0, lastDotIndex); 
-  String outputImageFilename = "rendered_contours/" + justTheNumber + ".png";
+  String outputImageFilename = "output_rendered_contours/" + justTheNumber + ".png";
   
-  if (bDoSaveOutput) { // main switch
+  if (bDoSavePNGOutput) { // main switch
     outputImage.save(outputImageFilename); 
     println ("Saved: " + whichImageIndex + "\t" + outputImageFilename);
   } else {
