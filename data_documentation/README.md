@@ -16,7 +16,7 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 * [Teenie Harris Files](#teenie-harris-files)
 * [API Markup Layers](#api-markup-layers)
 * [Imagga API](#imagga-api)
-* [Google Vision API](#google-vision-api)
+* [Google Cloud Vision API](#google-cloud-vision-api)
 * [Microsoft Cognitive Services API](#microsoft-cognitive-services-api)
 * [OpenPose](#openpose)
 * [Detectron](#detectron)
@@ -39,9 +39,12 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 *Owing to permissions, the photographs in the Teenie Harris Archive are not available here. However, some 59,000 works in the Archive may be browsed at [collection.cmoa.org](https://collection.cmoa.org/?department=Fine%20Arts%3A%20Teenie%20Harris%20Archive&dir=desc&page=1&perPage=100).*
 
 * ```canonical_filename_order.txt``` [[**1.1MB .TXT**](photos/canonical_filename_order.txt)]
-  * 59,278 rows listing the "canonical order" we are using for the Teenie Harris image filenames. 
+  * 59,278 rows listing the "canonical order" we are using for the Teenie Harris image filenames.  
+* ```canonical_image_dimensions_1600.tsv``` [[**1.58 MB .TSV**](https://storage.googleapis.com/teenieharris/photos/tsv/canonical_image_dimensions_1600.tsv)]
+  * A tab-separated document containing dimensions of 59,278 Teenie Harris images, in canonical order, scaled so that their maximum dimension is 1600 pixels. 
+  * The tab-separated header of this file is `boxname	filename	width	height`.
 * ```photos_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/photos/npy32/photos_images_32x32.npy)]
-  * Extremely low-resolution (32x32 pixel) versions of the archive photos, encoded into a single Numpy binary file. 
+  * Extremely low-resolution (32x32 pixel) versions of the archive photos, encoded into a single Numpy binary file.
 
 
 ---
@@ -71,19 +74,19 @@ Markup layers in *Image #15236* by Charles 'Teenie' Harris
 
 
 ---
-### Google Vision API
+### Google Cloud Vision API
 
-*Results of analysis using the Google Vision API on the TeenieHarris 1600-pixel PNG images. Information includes face landmarks, object recognition, facial expression analysis, and optical character recognition (OCR).*
+*Results of analysis using the [Google Cloud Vision API](https://cloud.google.com/vision/overview/docs/) on the TeenieHarris 1600-pixel PNG images. Information includes face landmarks, object recognition, facial expression analysis, and optical character recognition (OCR).*
 
 * ```google_analyses_of_teenie_harris_archive.zip``` [[**321.21MB .ZIP**](https://storage.googleapis.com/teenieharris/google/json/google_analyses_of_teenie_harris_archive.zip)]
-  * ZIP archive containing 59,278 JSON files, each describing a corresponding  Teenie Harris image. Input images were 1600 pixels in their maximum dimension. 
+  * ZIP archive containing 59,278 JSON files, each describing a corresponding  Teenie Harris image. Input images were scaled to 1600 pixels in their maximum dimension. 
   * [Example JSON file](google/json/visionResult_Box100_15974.json) for image #15974.
 
 
 ---
 ### Microsoft Cognitive Services API
 
-*Results of analyzing the Teenie Harris Archive with the [Microsoft Cognitive Services API](https://azure.microsoft.com/en-us/services/cognitive-services/), which provides information like face landmarks, gender estimation, age estimation, face expression ("emotion") estimation, etc.*
+*Results of analyzing the Teenie Harris Archive with the [Microsoft Cognitive Services API](https://azure.microsoft.com/en-us/services/cognitive-services/), which provides information like face landmarks, gender estimation, age estimation, face expression ("emotion") estimation, etc. Some documentation about the Microsoft face analysis system can be found [here](https://godoc.org/github.com/ahmdrz/microsoft-cognitive-services/face) and [here](https://github.com/ahmdrz/microsoft-cognitive-services/blob/master/face/types.go#L50).*
 
 * ```microsoft_json_faces.zip``` [[**114.26 MB**](https://storage.googleapis.com/teenieharris/microsoft/json/microsoft_json_faces.zip)]
   * 59,272 JSON files produced by Microsoft Cognitive Services.
@@ -181,9 +184,9 @@ Box_001	686.png	583dfcfd1841423bb565ee29
   * Note that this bundle only includes data for faces that are detected by *both* Microsoft (which provides estimates of age and gender) and OpenFace (which provides 128-dimensional face descriptors). This bundle does *not* contain information for faces that are not detected by both of these services.
   * In these JSON files, face gender and age data is encoded in a one-hot field entitled `genderAndAgeOneHotData`, as follows:
 
-> * Field #0: is this data valid? 1 if Yes.
-> * Fields #1 and #2: 00 (no gender), 01 (male), 10 (female)
-> * Fields #3-22: age, in 5-year bins
+> * Field #0: Is this data valid? 1 if Yes.
+> * Fields #1 and #2: Gender: 00 (none), 01 (male), 10 (female).
+> * Fields #3-22: Age, in 5-year bins.
 
 
 ---
@@ -319,8 +322,8 @@ Institutional Sponsors:
 * [The Frank-Ratchye STUDIO for Creative Inquiry at Carnegie Mellon University](https://github.com/creativeinquiry)
 * [The Teenie Harris Archive at the Carnegie Museum of Art](https://cmoa.org/art/teenie-harris-archive/)
 * [The Innovation Studio at the Carnegie Museum of Art](https://github.com/CMP-Studio)
-* The National Endowment for the Humanities
-* nVidia
+* [The National Endowment for the Humanities](https://www.neh.gov/)
+* [nVidia](https://www.nvidia.com/en-us/)
 
 Additional Thanks: 
 
