@@ -313,6 +313,8 @@ Contributors:
 * [Kyle McDonald](https://github.com/kylemcdonald)
 * [Gene Kogan](https://github.com/genekogan)
 * [Oscar Dadfar](https://github.com/cardadfar) (CMU)
+* [Olivia Lynn](https://github.com/olivialynn) (CMU)
+* [Cassie Scheirer](https://github.com/scheirer-cassie) (CMU)
 * [Caroline Record](https://github.com/crecord) (CMOA)
 * [Dominique Luster](https://carnegiemuseums.org/expert/dominique-luster/) (CMOA)
 * Louise Lippincott (CMOA)
