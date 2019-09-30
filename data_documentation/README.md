@@ -259,6 +259,8 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 *Features of the Teenie Harris Images, computed using a pair of discrete convolutional neural networks (Inceptionv3 and VGG16). Inception v3 is a widely-used image recognition model that has been shown to attain greater than 78.1% accuracy on the ImageNet dataset. VGG16 is a convolutional neural network model that achieves 92.7% top-5 test accuracy in ImageNet.*
 
+*The Inception v3 analysis was performed with Kyle McDonald's notebook, ["Image Classification and Similarity"](https://github.com/kylemcdonald/ml-examples/blob/master/workshop/image_similarity/Image%20Classification%20and%20Similarity.ipynb). The VGG16 analysis was performed using Gene Kogan's OpenFrameworks project, ["Example-Encode"](https://github.com/kylemcdonald/ofxCcv/tree/master/example-encode).
+
 * ```features_inceptionv3_canonical.npy``` [[**926.22 MB .NPY**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/features_inceptionv3_canonical.npy)]
 * ```predictions_inceptionv3_canonical.npy``` [[**455.87 MB .NPY**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/predictions_inceptionv3_canonical.npy)]
 * ```features_inceptionv3.csv.zip``` [[**422.83 MB .ZIP**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/features_inceptionv3.csv.zip)]
