@@ -312,6 +312,7 @@ Contributors:
 * [Zaria Howard](https://github.com/ZariaHoward) (CMU)
 * [Kyle McDonald](https://github.com/kylemcdonald)
 * [Gene Kogan](https://github.com/genekogan)
+• [Lingdong Huang](https://github.com/LingDong-)
 * [Oscar Dadfar](https://github.com/cardadfar) (CMU)
 * [Olivia Lynn](https://github.com/olivialynn) (CMU)
 * [Cassie Scheirer](https://github.com/scheirer-cassie) (CMU)
