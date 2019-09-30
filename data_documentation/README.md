@@ -259,11 +259,11 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 *Features of the Teenie Harris Images, computed using a pair of discrete convolutional neural networks (Inceptionv3 and VGG16). Inception v3 is a widely-used image recognition model that has been shown to attain greater than 78.1% accuracy on the ImageNet dataset. VGG16 is a convolutional neural network model that achieves 92.7% top-5 test accuracy in ImageNet.*
 
-* ```features_inceptionv3_canonical.npy``` [[**926.22 MB .NPY**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/features_canonical.npy)]
-* ```predictions_inceptionv3_canonical.npy``` [[**455.87 MB .NPY**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/predictions_canonical.npy)]
-* ```features_inceptionv3.csv.zip``` [[**422.83 MB .ZIP**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/features.csv.zip)]
-* ```predictions_inceptionv3.csv.zip``` [[**233.02 MB .ZIP**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/predictions.csv.zip)]
-* ```filenames_inceptionv3.txt.zip``` [[**131.7 KB .ZIP**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/filenames.txt.zip)]
+* ```features_inceptionv3_canonical.npy``` [[**926.22 MB .NPY**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/features_inceptionv3_canonical.npy)]
+* ```predictions_inceptionv3_canonical.npy``` [[**455.87 MB .NPY**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/predictions_inceptionv3_canonical.npy)]
+* ```features_inceptionv3.csv.zip``` [[**422.83 MB .ZIP**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/features_inceptionv3.csv.zip)]
+* ```predictions_inceptionv3.csv.zip``` [[**233.02 MB .ZIP**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/predictions_inceptionv3.csv.zip)]
+* ```filenames_inceptionv3.txt.zip``` [[**131.7 KB .ZIP**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/filenames_inceptionv3.txt.zip)]
 
 And 
 
