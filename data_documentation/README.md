@@ -310,9 +310,9 @@ Contributors:
 * [Golan Levin](https://github.com/golanlevin) (CMU) • *Primary Contact*
 * [David Newbury](https://github.com/workergnome) (Getty Museum)
 * [Zaria Howard](https://github.com/ZariaHoward) (CMU)
-* [Kyle McDonald](https://github.com/kylemcdonald)
-* [Gene Kogan](https://github.com/genekogan)
-* [Lingdong Huang](https://github.com/LingDong-) (CMU)
+* [Kyle McDonald](https://github.com/kylemcdonald) 
+* [Gene Kogan](https://github.com/genekogan) 
+* [Lingdong Huang](https://github.com/LingDong-) (CMU)
 * [Oscar Dadfar](https://github.com/cardadfar) (CMU)
 * [Olivia Lynn](https://github.com/olivialynn) (CMU)
 * [Cassie Scheirer](https://github.com/scheirer-cassie) (CMU)
