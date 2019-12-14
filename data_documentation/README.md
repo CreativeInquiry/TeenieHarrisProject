@@ -250,8 +250,8 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 * ```saliency_jpg640.zip``` [[**828.75 MB .ZIP**](https://storage.googleapis.com/teenieharris/saliency/jpg640/saliency_jpg640.zip)]
   * 59,278 .JPG grayscale images, whose pixels represent an estimate of the "saliency" in that image. Images are 640 pixels in their maximum dimension.
   * [Example JPG image](saliency/jpg640/15974.jpg) for image #15974.
-* ```saliency_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/saliency/npy32/)]
-  * Numpy binary file containing 32x32 pixel versions of the saliency images.
+* ```saliency_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/saliency/npy32/saliency_images_32x32.npy)]
+  * Numpy binary file containing 32x32 pixel versions of the saliency images. 
 
   
 ---
