@@ -217,7 +217,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 *Images containing (white) oriented ellipses (on a black background) that indicate the locations of faces. The face locations are taken from a mixture of Google, OpenPose, OpenFace and Microsoft (whichever has data). The face orientation angles are taken from Google API or Microsoft API, whichever has data.*
 
-<img src="face_ellipses/png640/15974.png" alt="Example FCRN Depth image" height="320"/><br />*Face ellipse for Image #15974.*
+<img src="face_ellipses/png640/15974.png" alt="Example face-ellipse image" height="320"/><br />*Face ellipse for Image #15974.*
 
 * ```face_ellipses_png640.zip``` [[**86.15MB .ZIP**](https://storage.googleapis.com/teenieharris/face_ellipses/png640/face_ellipses_png640.zip)]
   * 59,278 .PNG files, whose maximum dimension is 640 pixels.
@@ -229,7 +229,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 ---
 ### Depth
 
-*An archive of .PNG images representing the estimated "depth" of the scene in every Teenie Harris image, as estimated by [FCRN Depth Prediction](https://github.com/iro-cp/FCRN-DepthPrediction) ("Deeper Depth Prediction with Fully Convolutional Residual Networks").*
+*An archive of .PNG images representing the estimated "depth" of the scene in every Teenie Harris image, as estimated by [FCRN Depth Prediction](https://github.com/iro-cp/FCRN-DepthPrediction) ("Deeper Depth Prediction with Fully Convolutional Residual Networks"). A similar algorithm (DenseDepth by Ibraheem Alhashim) is also accessibly [provided by RunwayML](https://runwayml.com/).*
 
 <img src="depth/png320/15974.png" alt="Example FCRN Depth image" height="320"/><br />*Estimated depth map for Image #15974.*
 
