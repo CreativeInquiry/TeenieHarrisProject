@@ -305,7 +305,7 @@ And
 
 
 ---
-### Credits and Acknowledgements
+### Credits
 
 Contributors: 
 
