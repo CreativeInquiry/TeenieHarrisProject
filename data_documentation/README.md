@@ -30,7 +30,7 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 * [DCNN](#dcnn)
 * [Embeddings](#embeddings)
 * [Assignments](#assignments)
-* [Credits](#credits)
+* [Credits and Acknowledgements](#credits)
 
 
 ---
@@ -305,7 +305,7 @@ And
 
 
 ---
-### Credits
+### Credits and Acknowledgements
 
 Contributors: 
 
@@ -328,7 +328,7 @@ Institutional Sponsors:
 * [The Teenie Harris Archive at the Carnegie Museum of Art](https://cmoa.org/art/teenie-harris-archive/)
 * [The Innovation Studio at the Carnegie Museum of Art](https://github.com/CMP-Studio)
 * [The National Endowment for the Humanities](https://www.neh.gov/)
-* [nVidia](https://www.nvidia.com/en-us/)
+* [nVidia Corporation](https://www.nvidia.com/en-us/)
 
 Additional Thanks: 
 
