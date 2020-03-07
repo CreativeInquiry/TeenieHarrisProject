@@ -14,6 +14,7 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 ### Table of Contents
 
 * [Teenie Harris Files](#teenie-harris-files)
+* [Image Descriptions](#image-descriptions)
 * [API Markup Layers](#api-markup-layers)
 * [Imagga API](#imagga-api)
 * [Google Cloud Vision API](#google-cloud-vision-api)
@@ -47,6 +48,28 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 * ```photos_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/photos/npy32/photos_images_32x32.npy)]
   * Extremely low-resolution (32x32 pixel) versions of the archive photos, encoded into a single Numpy binary file.
 
+
+---
+### Image Descriptions
+
+*Textual descriptions of the images in the Teenie Harris Archive, produced by the archive staff of the Carnegie Museum of Art.* 
+
+* ```descriptions.tsv```  [[**14.2MB .TSV**](https://storage.googleapis.com/teenieharris/descriptions/descriptions.tsv)]
+* ```descriptions.tsv.zip``` [[**4.3MB .ZIP**](descriptions/descriptions.tsv.zip)]
+
+This is a headerless, tab-separated file which contains the following fields:
+* imageName (not including image type file extension) 
+* textual description
+* date (or date range)
+* CMOA acquisition number
+* imageOid UUID from the Microsoft database
+
+Two example rows from this text file are provided here:
+
+```
+15236	Rev. Dr. Loran Mann and holding microphone attached to KDKA Radio 1020 tape recorder	c. 1950-1970	2001.35.8126	24fd67e4-0de4-4214-890c-d56db73ad99b
+15974	Woman in leotard posing with elephant, possibly for a circus	c. 1950-1970	2001.35.8192	afb9ec17-bb48-440b-92d4-8f747ef0b83e
+```
 
 ---
 ### API Markup Layers
