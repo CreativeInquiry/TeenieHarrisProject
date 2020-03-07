@@ -26,6 +26,7 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 * [Analysis: Other](#analysis--other)
 * [Face Ellipses](#face-ellipses)
 * [Depth](#depth)
+* [Colorized](#colorized)
 * [Saliency](#saliency)
 * [DCNN](#dcnn)
 * [Embeddings](#embeddings)
@@ -36,7 +37,7 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 ---
 ### Teenie Harris Files
 
-*Owing to permissions, the photographs in the Teenie Harris Archive are not available here. However, some 59,000 works in the Archive may be browsed at [collection.cmoa.org](https://collection.cmoa.org/?department=Fine%20Arts%3A%20Teenie%20Harris%20Archive&dir=desc&page=1&perPage=100).*
+*Owing to permissions, high-resolution versions of the photographs in the Teenie Harris Archive are not available here. However, some 59,000 works in the Archive may be browsed at [collection.cmoa.org](https://collection.cmoa.org/?department=Fine%20Arts%3A%20Teenie%20Harris%20Archive&dir=desc&page=1&perPage=100).*
 
 * ```canonical_filename_order.txt``` [[**1.1MB .TXT**](photos/canonical_filename_order.txt)]
   * 59,278 rows listing the "canonical order" we are using for the Teenie Harris image filenames.  
@@ -239,6 +240,31 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 * ```depth_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/depth/npy32/depth_images_32x32.npy)]
   * Numpy binary file containing 32x32 pixel versions of the depth images.
 
+  
+---
+### Colorized
+
+*Fifteen archives, each containing 50 sub-archives, containing artificially "colorized" versions of the (ordinarily black-and-white) Teenie Harris Archive images. These have been automatically colorized using Jason Antic's deep-learning-based [DeOldify](https://github.com/jantic/DeOldify) algorithm. (DeOldify is also accessibly [provided by RunwayML](https://runwayml.com/)). Images are stored as JPEGs with a maximum dimension of 640 pixels.*
+
+<img src="colorized/jpg640/15974.png" alt="Example DeOldify-colorized image" height="320"/><br />*Artificially colorized version of Image #15974, from Box #100.* 
+
+1.  [Boxes 001-050](https://storage.googleapis.com/teenieharris/colorized/CLR_001_050.zip) (1.81 GB .ZIP)
+2.  [Boxes 051-100](https://storage.googleapis.com/teenieharris/colorized/CLR_051_100.zip) (1.78 GB .ZIP)
+3.  [Boxes 101-150](https://storage.googleapis.com/teenieharris/colorized/CLR_101_150.zip) (1.77 GB .ZIP)
+4.  [Boxes 151-200](https://storage.googleapis.com/teenieharris/colorized/CLR_151_200.zip) (1.71 GB .ZIP)
+5.  [Boxes 201-250](https://storage.googleapis.com/teenieharris/colorized/CLR_201_250.zip) (1.74 GB .ZIP)
+6.  [Boxes 251-300](https://storage.googleapis.com/teenieharris/colorized/CLR_251_300.zip) (1.70 GB .ZIP)
+7.  [Boxes 301-350](https://storage.googleapis.com/teenieharris/colorized/CLR_301_350.zip) (1.68 GB .ZIP)
+8.  [Boxes 351-400](https://storage.googleapis.com/teenieharris/colorized/CLR_351_400.zip) (1.74 GB .ZIP)
+9.  [Boxes 401-450](https://storage.googleapis.com/teenieharris/colorized/CLR_401_450.zip) (1.72 GB .ZIP)
+10. [Boxes 451-500](https://storage.googleapis.com/teenieharris/colorized/CLR_451_500.zip) (1.74 GB .ZIP)
+11. [Boxes 501-550](https://storage.googleapis.com/teenieharris/colorized/CLR_501_550.zip) (1.75 GB .ZIP)
+12. [Boxes 551-600](https://storage.googleapis.com/teenieharris/colorized/CLR_551_600.zip) (1.70 GB .ZIP)
+13. [Boxes 601-650](https://storage.googleapis.com/teenieharris/colorized/CLR_601_650.zip) (1.69 GB .ZIP)
+14. [Boxes 651-700](https://storage.googleapis.com/teenieharris/colorized/CLR_651_700.zip) (2.07 GB .ZIP)
+15. [Boxes 701-750](https://storage.googleapis.com/teenieharris/colorized/CLR_701_750.zip) (0.82 GB .ZIP)
+
+*These colorized versions of the Harris images are useful for bootstrapping some forms of further machine analysis, by providing coarse estimates of color information where none otherwise exists. The DeOldify algorithm which generated these images makes the sky blue, grass green, and human skin more-or-less pinkish-brown (effectively taking the channelwise mean of the data, and adapting it to better match the "correct" (or expected) input distribution across channels). While this can lead to dramatic improvements in subsequent image analysis, the colorized images themselves should not be displayed publicly — both because of their divergenge from Harris's artistic voice, and because of the fraught social and ethical issues in "colorizing" the subjects of his photographs.*
 
 ---
 ### Saliency
@@ -320,7 +346,8 @@ Contributors:
 * [Cassie Scheirer](https://github.com/scheirer-cassie) (CMU)
 * [Caroline Record](https://github.com/crecord) (CMOA)
 * [Dominique Luster](https://carnegiemuseums.org/expert/dominique-luster/) (CMOA)
-* Louise Lippincott (CMOA)
+* [Charlene Foggie-Barnett](https://carnegiemuseums.org/expert/charlene-foggie-barnett/) (CMOA)
+* [Louise Lippincott](https://carnegiemuseums.org/carnegie-magazine/summer-2018/the-fine-art-of-louise-lippincott/) (CMOA)
 
 Institutional Sponsors: 
 
