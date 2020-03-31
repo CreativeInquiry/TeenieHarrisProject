@@ -450,7 +450,7 @@ Center-cropped, monochrome, 512x512-pixel versions of the 59,278 images in the T
 
 Singular, *extremely* large square images that contain thumbnails of the entire Teenie Harris archive at various resolutions. Unless otherwise specified, thumbnails are monochrome and center-cropped. Black regions are intentional, and result from our copy of the archive having only 59,278 images (and not 65,536). *Note that these images are very large and may not display properly in all operating systems or previwing software.*
 
-![](thumbs/thumbs_texture_64x64_reduced.png)<br/ >
+![](thumbs/thumbs_texture_64x64_reduced.png)<br />
 *All thumbnails in a single image (```thumbs_texture_64x64.png```), reduced for display here.*
 
 * ```thumbs_texture_64x64.png``` [[**185.42 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_all/thumbs_texture_64x64.png) (16384 x 16384 overall)
