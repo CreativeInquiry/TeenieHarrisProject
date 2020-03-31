@@ -51,6 +51,7 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 * ```canonical_image_dimensions_1600.tsv``` [[**1.58 MB .TSV**](https://storage.googleapis.com/teenieharris/photos/tsv/canonical_image_dimensions_1600.tsv)]
   * A tab-separated document containing dimensions of 59,278 Teenie Harris images, in canonical order, scaled so that their maximum dimension is 1600 pixels. 
   * The tab-separated header of this file is `boxname	filename	width	height`.
+  * A local copy of this file is also [here](photos/canonical_image_dimensions_1600.tsv).
 * ```photos_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/photos/npy32/photos_images_32x32.npy)]
   * Extremely low-resolution (32x32 pixel) versions of the archive photos, encoded into a single Numpy binary file.
 
@@ -73,9 +74,56 @@ This is a headerless, tab-separated file which contains the following fields:
 Two example rows from this text file are provided here:
 
 ```
-15236	Rev. Dr. Loran Mann and holding microphone attached to KDKA Radio 1020 tape recorder	c. 1950-1970	2001.35.8126	24fd67e4-0de4-4214-890c-d56db73ad99b
-15974	Woman in leotard posing with elephant, possibly for a circus	c. 1950-1970	2001.35.8192	afb9ec17-bb48-440b-92d4-8f747ef0b83e
+15236	Rev. Dr. Loran Mann and holding microphone attached to KDKA Radio 1020 tape recorder
+	c. 1950-1970	2001.35.8126	24fd67e4-0de4-4214-890c-d56db73ad99b
+15974	Woman in leotard posing with elephant, possibly for a circus
+	c. 1950-1970	2001.35.8192	afb9ec17-bb48-440b-92d4-8f747ef0b83e
 ```
+
+---
+
+
+* ```thp_year_metadata.json``` [[**3.6 MB**]](meta/thp_year_metadata.json)
+
+```
+{"YEAR": 1960.5, "FILE": "15236.png", "CANONICAL": 8141},
+{"YEAR": 1960.5, "FILE": "15974.png", "CANONICAL": 8228}
+```
+
+---
+
+
+* ```thp_meta_data.json.zip``` [[**3.5 MB**]](meta/thp_meta_data.json.zip) .ZIP-archived .JSON file containing select metadata for each image in the Teenie Harris Archive. Each entry (corresponding to one image) contains the following keys:
+	* `FILE`: the image filename
+	* `CANONICAL`: index (numbered from 0) in `canonical_filename_order.txt` 
+	* `N_FACES`: number of faces
+	* `AGE_AVG`: average age of all the faces
+	* `AGE_MIN`: age of youngest face in the scene
+	* `AGE_MAX`: age of oldest face in the scene
+	* `AGE_MEDIAN`: median age of people in the scene
+	* `AGE_BIGFACE`: age of the largest face in the scene
+	* `PCAREA_FACES`: percentage of the image's total area covered by faces
+	* `AREA_BIGFACE`: area of the largest face
+	* `COLOR_MEDIAN`: median grayscale level (0...255) of entire image
+	* `COLOR_AVG`: average grayscale level (0...255) of entire image
+	* `COLOR_STDDEV`: grayscale standard deviation of entire image
+	* `YEAR`: year the photo is taken; a float value based on the date.
+
+Facial age data in this file is from the [Microsoft Cognitive Services API](#microsoft-cognitive-services-api). Year data is from the Carnegie Museum of Art's Teenie Harris Archive team. Here are two example entries from ```thp_meta_data.json.zip```:
+
+```
+{"FILE":"15236.png", "CANONICAL": 8141, "N_FACES": 2, 
+	"AGE_AVG": 33.9, "AGE_MIN": 33.9, "AGE_MAX": 33.9, 
+	"AGE_MEDIAN": 33.9, "AGE_BIGFACE": 33.9, "PCAREA_FACES": 0.059673, 
+	"AREA_BIGFACE": 54756, "COLOR_MEDIAN": 111.0, "COLOR_AVG": 110.144812, 
+	"COLOR_STDDEV": 57.071441, "YEAR": 1960.5},
+{"FILE": "15974.png", "CANONICAL": 8228, "N_FACES": 2, 
+	"AGE_AVG": 17.2, "AGE_MIN": 17.2, "AGE_MAX": 17.2, 
+	"AGE_MEDIAN": 17.2, "AGE_BIGFACE": 17.2, "PCAREA_FACES": 0.007130, 
+	"AREA_BIGFACE": 6400, "COLOR_MEDIAN": 79.0, "COLOR_AVG": 83.324975, 
+	"COLOR_STDDEV": 47.861416, "YEAR": 1960.5}
+```
+
 
 ---
 ### API Markup Layers
@@ -99,7 +147,7 @@ Markup layers in *Image #15236* by Charles 'Teenie' Harris
 *Analysis of the Teenie Harris archive using the [Imagga](https://imagga.com/) image analysis service, including a wide range of semantic descriptors and confidence values.*
 
 * ```imagga_analyses_of_teenie_harris_archive.zip``` [[**106MB ZIP**](https://storage.googleapis.com/teenieharris/imagga/json/imagga_analyses_of_teenie_harris_archive.zip)]
-  * Zip archive containing 59,190 JSON files. Input images were 1600 pixels in their maximum dimension.
+  * .ZIP archive containing 59,190 JSON files. Input images were 1600 pixels in their maximum dimension.
   * [Example JSON file](imagga/json/result_Box_100_15974.png.json) for image #15974.
 
 
@@ -311,18 +359,14 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 ---
 ### Saliency Maxima
 
-* ```saliency_nms_boxes.tsv``` [[**4.5 MB .TSV**]](saliency/saliency_nms_boxes.tsv): This tab-separated file contains the *local maxima points* of the saliency images, calculated using [Non-Maximum Suppression](https://towardsdatascience.com/non-maximum-suppression-nms-93ce178e177c). Note: In this file, the local maxima are stored as identically-sized bounding-boxes. The reason for this is that this file was designed to be ingested by the same code used for reading face-boxes. What's relevant here is that *only the center of these bounding boxes is important*. Each line in this file corresponds to an image. and the format is like so: ```X\tY\tW\tH\tX\tY\tW\tH...```
+* ```saliency_nms_boxes.tsv``` [[**4.5 MB .TSV**]](saliency/saliency_nms_boxes.tsv): This tab-separated file contains the *local maxima points* of the saliency images, calculated using [Non-Maximum Suppression](https://towardsdatascience.com/non-maximum-suppression-nms-93ce178e177c). Note: In this file, the local maxima are stored as identically-sized bounding-boxes. The reason for this is that this file was designed to be ingested by the same code used for reading face-boxes. What's relevant here is that *only the center of these bounding boxes is important*. Each line in this file corresponds to an image, and the format is like so: ```X\tY\tW\tH\tX\tY\tW\tH...```
 * ```saliency_nms_32x32.npy.zip``` [[**1.3 MB**]](saliency/saliency_nms_32x32.npy.zip) Zipped nx32x32 numpy file storing the results of Non-Maximum Suppression calculations on the 32x32 pixel versions of the saliency images.
 
-For example, from [```canonical_filename_order.txt```](photos/canonical_filename_order.txt) we know that Image #15974.png ("Woman in leotard posing with elephant") occupies row 8229 in the Canonical Filename Order. The corresponding row 8229 in ```saliency_nms_boxes.tsv``` contains 12 tab-separated numbers as follows, indicating that 3 "saliency maxima" have been detected:
+For example, from [```canonical_filename_order.txt```](photos/canonical_filename_order.txt) we know that Image #15974.png ("*Woman in leotard posing with elephant*") occupies row 8229 in the Canonical Filename Order. The corresponding row 8229 in ```saliency_nms_boxes.tsv``` contains 12 tab-separated numbers as follows, indicating that 3 "saliency maxima" have been detected:
 
 ```
 0.252	0.078	0.089	0.062	0.409	0.172	0.089	0.062	0.659	0.234	0.089	0.062
 ```
-
-
-
-
 
   
 ---
