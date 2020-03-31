@@ -372,9 +372,11 @@ Center-cropped 64x64-pixel monochrome thumbnail images of the Teenie Harris arch
 * ```thumbs_64x64_40000-50000.png	``` [[**31.2 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_64/thumbs_64x64_40000-50000.png)
 * ```thumbs_64x64_50000-60000.png``` [[**28.77 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_64/thumbs_64x64_50000-60000.png)
 
-All Teenie 64x64 thumbnails in a *single* composite image, 4096 pixels wide x 59278 rows: 
+All Teenie thumbnails in a *single* composite image, 59278 rows long: 
 
-* ```thumbs_64x64.png``` [[**185.22 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_64/thumbs_64x64.png) 
+* ```thumbs_64x64.png``` [[**185.22 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_64/thumbs_64x64.png) (4096 x 59278)
+* ```thumbs_32x32.png``` [[**47.76 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_32/thumbs_32x32.png) (1024 x 59278)
+* ```thumbs_32x32-rgb.png``` [[**137.08 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_32/thumbs_32x32-rgb.png) (1024 x 59278, grayscale @ 3bpp)
 
 
 ---
@@ -383,7 +385,7 @@ All Teenie 64x64 thumbnails in a *single* composite image, 4096 pixels wide x 59
 Teenie Harris 256x256-pixel (center-cropped) monochrome thumbnail images, combined into grayscale "texture" images (for rapid GPU access), of dimensions 16384 x 16384. These 16 images are used in the Teenie Harris interactive installation, as a quick way of storing and displaying 60K images. Each image contains 4096 thumbnails. The last two images contain blank regions because there are only 59278 (and not 65536) images in our copy of the Teenie Harris archive.
 
 ![](thumbs/thumbs_texture_00_256x256_reduced.png)<br />
-*One of the sixteen monochrome "texture" images (```thumbs_texture_00_256x256```), reduced to 1024x1024 for display here.*
+*One of the sixteen monochrome "texture" images (```thumbs_texture_00_256x256.png```), reduced to 1024x1024 for display here.*
 
 * ```thumbs_texture_00_256x256.png``` [[**170.28 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_256/thumbs_texture_00_256x256.png)
 * ```thumbs_texture_01_256x256.png``` [[**170.65 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_256/thumbs_texture_01_256x256.png)
@@ -431,7 +433,7 @@ Thumbnails of *artifically-colorized* Teenie Harris images, center-cropped and s
 ---
 ### Thumbnail Images 512x512
 
-Center-cropped, monochrome, 512x512-pixel versions of the 59278 images in the Teenie Harris archive, grouped into .ZIP archives containing approximately 10,000 images each. 
+Center-cropped, monochrome, 512x512-pixel versions of the 59,278 images in the Teenie Harris archive, grouped into .ZIP archives containing approximately 10,000 images each. 
 
 * ```teenie_png_512x512_1.zip``` [[**1.35 GB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_512/teenie_png_512x512_1.zip)
 * ```teenie_png_512x512_2.zip``` [[**1.33 GB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_512/teenie_png_512x512_2.zip)
@@ -443,23 +445,22 @@ Center-cropped, monochrome, 512x512-pixel versions of the 59278 images in the Te
 
 ---
 
+### Thumbnail Overviews
 
+Singular, *extremely* large square images that contain thumbnails of the entire Teenie Harris archive at various resolutions. Unless otherwise specified, thumbnails are monochrome and center-cropped. Black regions are intentional, and result from our copy of the archive having only 59,278 images (and not 65,536). *Note that these images are very large and may not display properly in all operating systems or previwing software.*
 
-And
+![](thumbs/thumbs_texture_64x64_reduced.png)<br/ >
+*All thumbnails in a single image (```thumbs_texture_64x64.png```), reduced for display here.*
 
-* thumbs_texture_64x64.png	185.42 MB
-* thumbs_texture_128x128.png	678.21 MB	
-* thumbs_texture_256x256.png	2.37 GB
-
-And 
-
-* thumbs_32x32-rgb.png	137.08 MB		
-* thumbs_32x32.png	47.76 MB
-
+* ```thumbs_texture_64x64.png``` [[**185.42 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_all/thumbs_texture_64x64.png) (16384 x 16384 overall)
+* ```thumbs_texture_128x128.png``` [[**678.21 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_all/thumbs_texture_128x128.png) (32768 x 32768 overall)
+* ```thumbs_texture_256x256.png``` [[**2.37 GB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_all/thumbs_texture_256x256.png) (65536 x 65536 overall)
 
 
 ---
 ### Credits
+
+*This project was developed at the CMU Frank-Ratchye STUDIO for Creative Inquiry using openFrameworks, Processing, ML4A, and ml5.js, and made possible by support from the National Endowment for the Humanities (Award HAA-256249-17, #1080397); the Carnegie Museum of Art Teenie Harris Archive, the J. Paul Getty Trust, and nVidia Corporation. Developed by Golan Levin and David Newbury (principal investigators); Zaria Howard, Kyle McDonald, Gene Kogan (machine learning); Lingdong Huang (interactive display); Oscar Dadfar, Luca Damasco, Cassie Scheirer (data preparation); Olivia Lynn (additional software). Additional thanks to Dominique Luster, Charlene Foggie-Barnett, Louise Lippincott, Caroline Record, Sam Ticknor, and the Innovation Studio at the Carnegie Museum of Art; and to Thomas Hughes, Linda Hager, Carol Hernandez, and Bill Rodgers at the CMU Frank-Ratchye STUDIO for Creative Inquiry.*
 
 Contributors: 
 
@@ -489,7 +490,7 @@ Additional Thanks:
 
 * Thomas Hughes (CMU)
 * Linda Hager (CMU)
+* Bill Rodgers (CMU)
+* Carol Hernandez (CMU)
 * Aman Tiwari (CMU)
 * Omer Shapira (nVidia)
-
-
