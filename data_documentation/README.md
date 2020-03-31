@@ -36,6 +36,7 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 * [Thumbnails 256x256](#thumbnail-images-256x256)
 * [Thumbnails 256x256, Colorized](#thumbnail-images-256x256-colorized)
 * [Thumbnails 512x512](#thumbnail-images-512x512)
+* [Thumbnail Overviews](#thumbnail-overviews)
 * [Credits and Acknowledgements](#credits)
 
 
