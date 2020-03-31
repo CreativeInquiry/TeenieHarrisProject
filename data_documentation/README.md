@@ -29,6 +29,7 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 * [Depth](#depth)
 * [Colorized](#colorized)
 * [Saliency](#saliency)
+* [Saliency Maxima](#saliency-maxima)
 * [DCNN](#dcnn)
 * [Embeddings](#embeddings)
 * [Assignments](#assignments)
