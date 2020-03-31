@@ -356,10 +356,10 @@ And
 ---
 ### Thumbnail Images 64x64
 
-Teenie Harris 64x64-pixel (center-cropped) monochrome thumbnail images, re-formatted into compilation images of dimensions 4096x10000, with one thumbnail-image per pixel-row. Note that these thumbnail images have been "unwrapped" and are not human-viewable:
+Center-cropped 64x64-pixel monochrome thumbnail images of the Teenie Harris archive, re-formatted into compilation images 4096 pixels wide, *with one thumbnail-image per pixel-row*. Note that these thumbnail images have been "unwrapped" and are not human-viewable in a traditional sense. The rows are presented in canonical order, in groups of 10,000. 
 
 ![First 256 rows (sample image)](thumbs/thumbs_64x64_first256.png)<br />
-*Sample 64x64 thumbnail composite image, with first 256 rows (i.e. 4096x256).* 
+*The first 256 rows of a sample "compilation" image of 64x64 thumbnails (i.e. 4096x256).* 
 
 * ```thumbs_64x64_00000-10000.png``` [[**31.58 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_64/thumbs_64x64_00000-10000.png)
 * ```thumbs_64x64_10000-20000.png``` [[**31.55 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_64/thumbs_64x64_10000-20000.png)
@@ -368,7 +368,7 @@ Teenie Harris 64x64-pixel (center-cropped) monochrome thumbnail images, re-forma
 * ```thumbs_64x64_40000-50000.png	``` [[**31.2 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_64/thumbs_64x64_40000-50000.png)
 * ```thumbs_64x64_50000-60000.png``` [[**28.77 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_64/thumbs_64x64_50000-60000.png)
 
-All Teenie 64x64 thumbnails in a single composite image, 4096 wide x 59278 rows: 
+All Teenie 64x64 thumbnails in a *single* composite image, 4096 pixels wide x 59278 rows: 
 
 * ```thumbs_64x64.png``` [[**185.22 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_64/thumbs_64x64.png) 
 
@@ -376,7 +376,7 @@ All Teenie 64x64 thumbnails in a single composite image, 4096 wide x 59278 rows:
 ---
 ### Thumbnail Images 256x256
 
-Teenie Harris 256x256-pixel (center-cropped) monochrome thumbnail images, combined into grayscale "texture" images (for rapid GPU access), of dimensions 16384 x 16384. Each image contains 4096 thumbnails: 
+Teenie Harris 256x256-pixel (center-cropped) monochrome thumbnail images, combined into grayscale "texture" images (for rapid GPU access), of dimensions 16384 x 16384. These 16 images are used in the Teenie Harris interactive installation, as a quick way of storing and displaying 60K images. Each image contains 4096 thumbnails. 
 
 ![](thumbs/thumbs_texture_00_256x256_reduced.png)<br />
 *One of the below sixteen "texture" images (thumbs_texture_00_256x256), reduced to 1024x1024 for display here.*
@@ -399,7 +399,10 @@ Teenie Harris 256x256-pixel (center-cropped) monochrome thumbnail images, combin
 * ```thumbs_texture_15_256x256.png``` [[**281.45 KB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_256/thumbs_texture_15_256x256.png) (*Note: blank*)
 
 
-Thumbnails of artifically-colorized Teenie Harris images, center-cropped and scaled to 256x256, compiled into RGB "texture" images (for rapid GPU access), of dimensions 16384 x 16384. Each image contains 4096 thumbnails:
+Thumbnails of *artifically-colorized* Teenie Harris images, center-cropped and scaled to 256x256, compiled into RGB "texture" images of dimensions 16384 x 16384. Each image contains 4096 thumbnails (in a 64 x 64 grid):
+
+![](thumbs/thumbs_texture_color_00_256x256_reduced.png)<br />
+*The artificially colorized "texture" image, thumbs_texture_color_00_256x256), reduced to 1024x1024 for display here.*
 
 * ```thumbs_texture_color_00_256x256.png``` [[**511.39 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_color_256/thumbs_texture_color_00_256x256.png)
 * ```thumbs_texture_color_01_256x256.png``` [[**511.88 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_color_256/thumbs_texture_color_01_256x256.png)
