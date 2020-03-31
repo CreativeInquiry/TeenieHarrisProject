@@ -32,6 +32,9 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 * [DCNN](#dcnn)
 * [Embeddings](#embeddings)
 * [Assignments](#assignments)
+* [Thumbnails 64x64](#thumbnail-images-64x64)
+* [Thumbnails 256x256](#thumbnail-images-256x256)
+* [Thumbnails 512x512](#thumbnail-images-512x512)
 * [Credits and Acknowledgements](#credits)
 
 
@@ -376,10 +379,10 @@ All Teenie 64x64 thumbnails in a *single* composite image, 4096 pixels wide x 59
 ---
 ### Thumbnail Images 256x256
 
-Teenie Harris 256x256-pixel (center-cropped) monochrome thumbnail images, combined into grayscale "texture" images (for rapid GPU access), of dimensions 16384 x 16384. These 16 images are used in the Teenie Harris interactive installation, as a quick way of storing and displaying 60K images. Each image contains 4096 thumbnails. 
+Teenie Harris 256x256-pixel (center-cropped) monochrome thumbnail images, combined into grayscale "texture" images (for rapid GPU access), of dimensions 16384 x 16384. These 16 images are used in the Teenie Harris interactive installation, as a quick way of storing and displaying 60K images. Each image contains 4096 thumbnails. The last two images contain blank regions because there are only 59278 (and not 65536) images in our copy of the Teenie Harris archive.
 
 ![](thumbs/thumbs_texture_00_256x256_reduced.png)<br />
-*One of the below sixteen "texture" images (thumbs_texture_00_256x256), reduced to 1024x1024 for display here.*
+*One of the sixteen monochrome "texture" images (```thumbs_texture_00_256x256```), reduced to 1024x1024 for display here.*
 
 * ```thumbs_texture_00_256x256.png``` [[**170.28 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_256/thumbs_texture_00_256x256.png)
 * ```thumbs_texture_01_256x256.png``` [[**170.65 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_256/thumbs_texture_01_256x256.png)
@@ -398,11 +401,13 @@ Teenie Harris 256x256-pixel (center-cropped) monochrome thumbnail images, combin
 * ```thumbs_texture_14_256x256.png``` [[**78.47 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_256/thumbs_texture_14_256x256.png)
 * ```thumbs_texture_15_256x256.png``` [[**281.45 KB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_256/thumbs_texture_15_256x256.png) (*Note: blank*)
 
+---
+### Thumbnail Images 256x256, Colorized
 
 Thumbnails of *artifically-colorized* Teenie Harris images, center-cropped and scaled to 256x256, compiled into RGB "texture" images of dimensions 16384 x 16384. Each image contains 4096 thumbnails (in a 64 x 64 grid):
 
 ![](thumbs/thumbs_texture_color_00_256x256_reduced.png)<br />
-*The artificially colorized "texture" image, thumbs_texture_color_00_256x256), reduced to 1024x1024 for display here.*
+*An artificially colorized "texture" image, thumbs_texture_color_00_256x256), reduced to 1024x1024 for display here.*
 
 * ```thumbs_texture_color_00_256x256.png``` [[**511.39 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_color_256/thumbs_texture_color_00_256x256.png)
 * ```thumbs_texture_color_01_256x256.png``` [[**511.88 MB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_color_256/thumbs_texture_color_01_256x256.png)
@@ -423,19 +428,19 @@ Thumbnails of *artifically-colorized* Teenie Harris images, center-cropped and s
 
 
 ---
-### NEXT
+### Thumbnail Images 512x512
+
+Center-cropped, monochrome, 512x512-pixel versions of the 59278 images in the Teenie Harris archive, grouped into .ZIP archives containing approximately 10,000 images each. 
+
+* ```teenie_png_512x512_1.zip``` [[**1.35 GB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_512/teenie_png_512x512_1.zip)
+* ```teenie_png_512x512_2.zip``` [[**1.33 GB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_512/teenie_png_512x512_2.zip)
+* ```teenie_png_512x512_3.zip``` [[**1.30 GB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_512/teenie_png_512x512_3.zip)
+* ```teenie_png_512x512_4.zip``` [[**1.31 GB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_512/teenie_png_512x512_4.zip)
+* ```teenie_png_512x512_5.zip``` [[**1.31 GB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_512/teenie_png_512x512_5.zip)
+* ```teenie_png_512x512_6.zip``` [[**1.20 GB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_512/teenie_png_512x512_6.zip)
 
 
-The Teenie Harris archive, monochrome 512x512 images (cropped):
-
-* teenie_png_512x512_1.zip	1.35 GB
-* teenie_png_512x512_2.zip	1.33 GB
-* teenie_png_512x512_3.zip	1.30 GB
-* teenie_png_512x512_4.zip	1.31 GB
-* teenie_png_512x512_5.zip	1.31 GB
-* teenie_png_512x512_6.zip	1.20 GB
-
-
+---
 
 
 
@@ -451,7 +456,6 @@ And
 * thumbs_32x32.png	47.76 MB
 
 
-https://storage.googleapis.com/teenieharris/colorized/CLR_001_050.zip
 
 ---
 ### Credits
