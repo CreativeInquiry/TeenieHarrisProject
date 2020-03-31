@@ -307,6 +307,22 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 * ```saliency_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/saliency/npy32/saliency_images_32x32.npy)]
   * Numpy binary file containing 32x32 pixel versions of the saliency images. 
 
+---
+### Saliency Maxima
+
+* ```saliency_nms_boxes.tsv``` [[**4.5 MB .TSV**]](saliency/saliency_nms_boxes.tsv): This tab-separated file contains the *local maxima points* of the saliency images, calculated using [Non-Maximum Suppression](https://towardsdatascience.com/non-maximum-suppression-nms-93ce178e177c). Note: In this file, the local maxima are stored as identically-sized bounding-boxes. The reason for this is that this file was designed to be ingested by the same code used for reading face-boxes. What's relevant here is that *only the center of these bounding boxes is important*. Each line in this file corresponds to an image. and the format is like so: ```X\tY\tW\tH\tX\tY\tW\tH...```
+* ```saliency_nms_32x32.npy.zip``` [[**1.3 MB**]](saliency/saliency_nms_32x32.npy.zip) Zipped nx32x32 numpy file storing the results of Non-Maximum Suppression calculations on the 32x32 pixel versions of the saliency images.
+
+For example, from [```canonical_filename_order.txt```](photos/canonical_filename_order.txt) we know that Image #15974.png ("Woman in leotard posing with elephant") occupies row 8229 in the Canonical Filename Order. The corresponding row 8229 in ```saliency_nms_boxes.tsv``` contains 12 tab-separated numbers as follows, indicating that 3 "saliency maxima" have been detected:
+
+```
+0.252	0.078	0.089	0.062	0.409	0.172	0.089	0.062	0.659	0.234	0.089	0.062
+```
+
+
+
+
+
   
 ---
 ### DCNN
