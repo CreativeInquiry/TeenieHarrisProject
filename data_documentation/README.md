@@ -335,14 +335,14 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 ---
 ### Face Rects
 
-*Numeric data storing rectangles that indicate the locations of faces in the Teenie Harris images. The face rectangles are taken from the union of Google, OpenPose, OpenFace and Microsoft (whichever has data).*
+*Numeric data storing rectangles that indicate the locations of faces in the Teenie Harris images. The face rectangles are derived from the union of Google, OpenPose, OpenFace and Microsoft (whichever has data). Where different APIs have produced small differences in detected rectangles, the rectangles here are an average of their results.*
 
 <img src="face_rects/15974_face_rects.png" alt="Example face-ellipse image" height="320"/><br />*Face rect(s) for Image #15974.*
 
 * ```thp_face_rects.tsv.zip``` [[**1.44 MB .ZIP**]](face_rects/thp_face_rects.tsv.zip): Zipped, tab-separated file indicating the locations of face rectangles for each of the Teenie Harris images. Each image's data appears on a single row, in canonical order. The rectangles are stored as floats, representing percentages of each image's width (for X and W) and the image's height (for Y and H), in the format: ```X\tY\tW\tH\tX\tY\tW\tH...```
 * ```thp_face_rects.tsv.zip``` [[**1.44 MB .ZIP**]](https://storage.googleapis.com/teenieharris/face_rects/thp_face_rects.tsv.zip): Duplicate of above, stored in Google Cloud
 
-For example, from ```canonical_filename_order.txt``` we know that Image #15974 ("Woman in leotard posing with elephant") occupies row #8228 (counting from 0, not 1) in the Canonical Filename Order. The corresponding row 8228 in ```thp_face_rects.tsv``` contains 4 tab-separated numbers as follows, indicating that one face rectangle has been stored. These rectangles can be displayed using [this small Processing test program](face_rects/face_rects.pde).
+For example, from [```canonical_filename_order.txt```](photos/canonical_filename_order.txt) we know that Image #15974 ("Woman in leotard posing with elephant") occupies row #8228 (counting from 0, not 1) in the Canonical Filename Order. The corresponding row 8228 in ```thp_face_rects.tsv``` contains 4 tab-separated numbers as follows, indicating that one face rectangle has been stored. These rectangles can be displayed using [this small Processing test program](face_rects/face_rects.pde).
 
 ```
 0.635	0.29	0.079	0.056
