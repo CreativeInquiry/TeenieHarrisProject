@@ -359,13 +359,22 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 ---
 ### Saliency Maxima
 
-* ```saliency_nms_boxes.tsv``` [[**4.5 MB .TSV**]](saliency/saliency_nms_boxes.tsv): This tab-separated file contains the *local maxima points* of the saliency images, calculated using [Non-Maximum Suppression](https://towardsdatascience.com/non-maximum-suppression-nms-93ce178e177c). Note: In this file, the local maxima are stored as identically-sized bounding-boxes. The reason for this is that this file was designed to be ingested by the same code used for reading face-boxes. What's relevant here is that *only the center of these bounding boxes is important*. Each line in this file corresponds to an image, and the format is like so: ```X\tY\tW\tH\tX\tY\tW\tH...```
-* ```saliency_nms_32x32.npy.zip``` [[**1.3 MB**]](saliency/saliency_nms_32x32.npy.zip) Zipped nx32x32 numpy file storing the results of Non-Maximum Suppression calculations on the 32x32 pixel versions of the saliency images.
+<img src="saliency/jpg640/15974_nms.jpg" alt="Saliency Maxima" height="320"/><br />*Local maxima of saliencies in Image #15974.*
 
-For example, from [```canonical_filename_order.txt```](photos/canonical_filename_order.txt) we know that Image #15974.png ("*Woman in leotard posing with elephant*") occupies row 8229 in the Canonical Filename Order. The corresponding row 8229 in ```saliency_nms_boxes.tsv``` contains 12 tab-separated numbers as follows, indicating that 3 "saliency maxima" have been detected:
+These files contains the locations of the *local maxima points* of the saliency images, calculated using [Non-Maximum Suppression](https://towardsdatascience.com/non-maximum-suppression-nms-93ce178e177c). Saliency maxima are useful for knowing where points of likely visual interest are in an image, especially in cases where faces and text go undetected. 
 
+* ```saliency_nms.tsv``` [[**5.5 MB .TSV**]](saliency/saliency_nms.tsv): This tab-separated file contains the *local maxima points* of the saliency images. In this file, the local maxima for a given image are stored together in a single row of text, as sequences of triplets (X,Y,R), in the format ```X\tY\tR\tX\tY\tR...```. Here, X represents a fraction (0...1) of the image's width; Y represents a fraction (0...1) of the image's height; and R is an integer representing the strength of that local maximum. The rows represent the images in Canonical Filename Order.
+* ```saliency_nms.json.zip``` [[**1.8 MB**]](saliency/saliency_nms.json): Same data as above, in JSON format, in a compressed .ZIP archive. 
+* ```saliency_nms_32x32.npy.zip``` [[**1.3 MB**]](saliency/saliency_nms_32x32.npy.zip): Zipped nx32x32 numpy file storing the results of Non-Maximum Suppression calculations on the 32x32 (cropped) pixel versions of the saliency images.
+
+For example, from [```canonical_filename_order.txt```](photos/canonical_filename_order.txt) we know that Image #15974 ("*Woman in leotard posing with elephant*") occupies row #8228 (counting from 0, not 1) in the Canonical Filename Order. The corresponding row 8228 in ```saliency_nms.tsv``` contains 18 tab-separated numbers as follows, indicating that 6 "saliency maxima" have been detected. These saliencies can be displayed using [this small Processing test program](saliency/saliency.pde).
+	
 ```
-0.252	0.078	0.089	0.062	0.409	0.172	0.089	0.062	0.659	0.234	0.089	0.062
+0.015	0.160	1	 0.296	0.225	41	0.452	0.291	46	 0.702	0.335	135	 0.202	0.554	16	0.702	0.686	24
+```
+The corresponding line in ```saliency_nms.json.zip``` (unzipped) appears as: 
+```
+[{"x":0.015,"y":0.16,"val":1},{"x":0.296,"y":0.225,"val":41},{"x":0.452,"y":0.291,"val":46},{"x":0.702,"y":0.335,"val":135},{"x":0.202,"y":0.554,"val":16},{"x":0.702,"y":0.686,"val":24}],
 ```
 
   
@@ -495,6 +504,8 @@ Thumbnails of *artifically-colorized* Teenie Harris images, center-cropped and s
 ---
 ### Thumbnail Images 512x512
 
+<img src="thumbs/15974_512x512.png" alt="Image #15974 as 512x512 thumb" width="512" height="512"/><br />*Image #15974, as it appears as a center-cropped 512x512 thumb image.* 
+
 Center-cropped, monochrome, 512x512-pixel versions of the 59,278 images in the Teenie Harris archive, grouped into .ZIP archives containing approximately 10,000 images each. 
 
 * ```teenie_png_512x512_1.zip``` [[**1.35 GB**]](https://storage.googleapis.com/teenieharris/thumbs/thumbs_mono_512/teenie_png_512x512_1.zip)
@@ -509,7 +520,7 @@ Center-cropped, monochrome, 512x512-pixel versions of the 59,278 images in the T
 
 ### Thumbnail Overviews
 
-Singular, *extremely* large square images that contain thumbnails of the entire Teenie Harris archive at various resolutions. Unless otherwise specified, thumbnails are monochrome and center-cropped. Black regions are intentional, and result from our copy of the archive having only 59,278 images (and not 65,536). *Note that these images are very large and may not display properly in all operating systems or previwing software.*
+Singular, *extremely* large square images that contain thumbnails of the entire Teenie Harris archive at various resolutions. Unless otherwise specified, thumbnails are monochrome and center-cropped. The black region at the bottom of these images is intentional, and results from our copy of the archive having 'only' 59,278 images (and not 65,536). *Note that these images are very large and may not display properly in all operating systems or previewing software.*
 
 <img src="thumbs/thumbs_texture_64x64_reduced.png" alt="All thumbnails in a single image" width="512" height="512"/><br />
 *All thumbnails in a single image (```thumbs_texture_64x64.png```), reduced for display here.*
