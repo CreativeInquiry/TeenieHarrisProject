@@ -15,6 +15,8 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 
 * [Teenie Harris Files](#teenie-harris-files)
 * [Image Descriptions](#image-descriptions)
+* [Years as Floats](#years-as-floats)
+* [Select Metadata Including Luminance](#select-metadata-including-luminance)
 * [API Markup Layers](#api-markup-layers)
 * [Imagga API](#imagga-api)
 * [Google Cloud Vision API](#google-cloud-vision-api)
@@ -81,9 +83,12 @@ Two example rows from this text file are provided here:
 ```
 
 ---
+### Years as Floats
 
+*This file contains an estimate of the data that a Teenie Harris image was taken, represented as a single floating-point number. This number is derived from the dates or date ranges prepared by the CMoA archival staff. In cases where precise month-dates are known, the number contains a decimal portion representing the fraction of the year represented by that date. Note: where ranges are given, this number represents the mid-point of that range; it should be noted that this therefore represents an "overly accurate" representation of the date.*
 
-* ```thp_year_metadata.json``` [[**3.6 MB**]](meta/thp_year_metadata.json)
+* ```thp_year_metadata.json``` [[**3.33 MB**]](meta/thp_year_metadata.json): Github (local) copy
+* ```thp_year_metadata.json``` [[**3.33 MB**]](https://storage.googleapis.com/teenieharris/meta/thp_year_data.json): Duplicate data, stored at Google Cloud
 
 ```
 {"YEAR": 1960.5, "FILE": "15236.png", "CANONICAL": 8141},
@@ -91,23 +96,26 @@ Two example rows from this text file are provided here:
 ```
 
 ---
+### Select Metadata Including Luminance
 
+*This file compiles select metadata about the Teenie Harris images, including information about the images' overall brightness (grayscale luminance); the number and age of detected faces; the year the image was taken; the image filename and canonical index. This file is used in the Teenie Harris interactive installation at CMoA.* 
 
-* ```thp_meta_data.json.zip``` [[**3.5 MB**]](meta/thp_meta_data.json.zip) .ZIP-archived .JSON file containing select metadata for each image in the Teenie Harris Archive. Each entry (corresponding to one image) contains the following keys:
+* ```thp_meta_data.json.zip``` [[**3.39 MB .ZIP**]](https://storage.googleapis.com/teenieharris/meta/thp_meta_data.json.zip): *Duplicate data as below, stored at Google Cloud.*
+* ```thp_meta_data.json.zip``` [[**3.39 MB .ZIP**]](meta/thp_meta_data.json.zip) Local (GitHub) copy of .ZIP-archived .JSON file containing select metadata for each image in the Teenie Harris Archive. Each entry (corresponding to one image) contains the following keys:
 	* `FILE`: the image filename
 	* `CANONICAL`: index (numbered from 0) in `canonical_filename_order.txt` 
-	* `N_FACES`: number of faces
-	* `AGE_AVG`: average age of all the faces
+	* `N_FACES`: number of faces detected in the scene
+	* `AGE_AVG`: average age of all the detected faces
 	* `AGE_MIN`: age of youngest face in the scene
 	* `AGE_MAX`: age of oldest face in the scene
 	* `AGE_MEDIAN`: median age of people in the scene
 	* `AGE_BIGFACE`: age of the largest face in the scene
 	* `PCAREA_FACES`: percentage of the image's total area covered by faces
-	* `AREA_BIGFACE`: area of the largest face
+	* `AREA_BIGFACE`: area of the largest face in the scene
 	* `COLOR_MEDIAN`: median grayscale level (0...255) of entire image
 	* `COLOR_AVG`: average grayscale level (0...255) of entire image
-	* `COLOR_STDDEV`: grayscale standard deviation of entire image
-	* `YEAR`: year the photo is taken; a float value based on the date.
+	* `COLOR_STDDEV`: standard deviation of grayscale levels in the entire image
+	* `YEAR`: year the photo was taken; a float value based on the date. Duplicate of data stored in ```thp_year_metadata.json```.
 
 Facial age data in this file is from the [Microsoft Cognitive Services API](#microsoft-cognitive-services-api). Year data is from the Carnegie Museum of Art's Teenie Harris Archive team. Here are two example entries from ```thp_meta_data.json.zip```:
 
@@ -148,13 +156,34 @@ Markup layers in *Image #15236* by Charles 'Teenie' Harris
 
 * ```imagga_analyses_of_teenie_harris_archive.zip``` [[**106MB ZIP**](https://storage.googleapis.com/teenieharris/imagga/json/imagga_analyses_of_teenie_harris_archive.zip)]
   * .ZIP archive containing 59,190 JSON files. Input images were 1600 pixels in their maximum dimension.
-  * [Example JSON file](imagga/json/result_Box_100_15974.png.json) for image #15974.
+  * [Example JSON file](imagga/json/result_Box_100_15974.png.json) for Image #15974.
+
+Some of the data produced by the Imagga service reveals questionable biases in the provided tags. For example, the JSON provided for Image #15974 begins: 
+
+```
+{
+    "results": [
+        {
+            "tagging_id": null, 
+            "image": "55b0872663a7df2cf4706e3f6702ffc4", 
+            "tags": [
+                {
+                    "origin": "semantic", 
+                    "confidence": 39.6674995422363, 
+                    "tag": "elephant"
+                }, 
+                {
+                    "origin": "additional", 
+                    "confidence": 34.5266723632812, 
+                    "tag": "sexy"
+                }, 
+ ```
 
 
 ---
 ### Google Cloud Vision API
 
-*Results of analysis using the [Google Cloud Vision API](https://cloud.google.com/vision/overview/docs/) on the TeenieHarris 1600-pixel PNG images. Information includes face landmarks, object recognition, facial expression analysis, and optical character recognition (OCR).*
+*Results of analysis using the [Google Cloud Vision API](https://cloud.google.com/vision/overview/docs/) on the TeenieHarris 1600-pixel PNG images. Information includes face landmarks,                  object recognition, facial expression analysis, and optical character recognition (OCR).*
 
 * ```google_analyses_of_teenie_harris_archive.zip``` [[**321.21MB .ZIP**](https://storage.googleapis.com/teenieharris/google/json/google_analyses_of_teenie_harris_archive.zip)]
   * ZIP archive containing 59,278 JSON files, each describing a corresponding  Teenie Harris image. Input images were scaled to 1600 pixels in their maximum dimension. 
@@ -303,6 +332,22 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 * ```face_ellipses_images_32x32.npy``` [[**57.89 MB .ZIP**](https://storage.googleapis.com/teenieharris/face_ellipses/npy32/face_ellipses_images_32x32.npy)]
   * Numpy binary file containing 32x32 pixel versions of the openface ellipse images.  
 
+---
+### Face Rects
+
+*Numeric data storing rectangles that indicate the locations of faces in the Teenie Harris images. The face rectangles are taken from the union of Google, OpenPose, OpenFace and Microsoft (whichever has data).*
+
+<img src="face_rects/15974_face_rects.png" alt="Example face-ellipse image" height="320"/><br />*Face rect(s) for Image #15974.*
+
+* ```thp_face_rects.tsv.zip``` [[**1.44 MB .ZIP**]](face_rects/thp_face_rects.tsv.zip): Zipped, tab-separated file indicating the locations of face rectangles for each of the Teenie Harris images. Each image's data appears on a single row, in canonical order. The rectangles are stored as floats, representing percentages of each image's width (for X and W) and the image's height (for Y and H), in the format: ```X\tY\tW\tH\tX\tY\tW\tH...```
+* ```thp_face_rects.tsv.zip``` [[**1.44 MB .ZIP**]](https://storage.googleapis.com/teenieharris/face_rects/thp_face_rects.tsv.zip): Duplicate of above, stored in Google Cloud
+
+For example, from ```canonical_filename_order.txt``` we know that Image #15974 ("Woman in leotard posing with elephant") occupies row #8228 (counting from 0, not 1) in the Canonical Filename Order. The corresponding row 8228 in ```thp_face_rects.tsv``` contains 4 tab-separated numbers as follows, indicating that one face rectangle has been stored. These rectangles can be displayed using [this small Processing test program](face_rects/face_rects.pde).
+
+```
+0.635	0.29	0.079	0.056
+```
+
 
 ---
 ### Depth
@@ -311,7 +356,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 <img src="depth/png320/15974.png" alt="Example FCRN Depth image" height="320"/><br />*Estimated depth map for Image #15974.*
 
-* ```depth_png320.zip``` [[**1.35 GB	 .ZIP**](https://storage.googleapis.com/teenieharris/depth/png320/depth_png320.zip)]
+* ```depth_png320.zip``` [[**1.35 GB .ZIP**](https://storage.googleapis.com/teenieharris/depth/png320/depth_png320.zip)]
   * 59,278 .PNG files, whose maximum dimension is 320 pixels. Lighter colors indicate pixels that are estimated to be "further away" from the camera.
   * [Example PNG image](depth/png320/15974.png) for image #15974.
 * ```depth_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/depth/npy32/depth_images_32x32.npy)]
@@ -364,8 +409,8 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 These files contains the locations of the *local maxima points* of the saliency images, calculated using [Non-Maximum Suppression](https://towardsdatascience.com/non-maximum-suppression-nms-93ce178e177c). Saliency maxima are useful for knowing where points of likely visual interest are in an image, especially in cases where faces and text go undetected. 
 
 * ```saliency_nms.tsv``` [[**5.5 MB .TSV**]](saliency/saliency_nms.tsv): This tab-separated file contains the *local maxima points* of the saliency images. In this file, the local maxima for a given image are stored together in a single row of text, as sequences of triplets (X,Y,R), in the format ```X\tY\tR\tX\tY\tR...```. Here, X represents a fraction (0...1) of the image's width; Y represents a fraction (0...1) of the image's height; and R is an integer representing the strength of that local maximum. The rows represent the images in Canonical Filename Order.
-* ```saliency_nms.json.zip``` [[**1.8 MB**]](saliency/saliency_nms.json): Same data as above, in JSON format, in a compressed .ZIP archive. 
-* ```saliency_nms_32x32.npy.zip``` [[**1.3 MB**]](saliency/saliency_nms_32x32.npy.zip): Zipped nx32x32 numpy file storing the results of Non-Maximum Suppression calculations on the 32x32 (cropped) pixel versions of the saliency images.
+* ```saliency_nms.json.zip``` [[**1.8 MB .ZIP**]](saliency/saliency_nms.json): Same data as above, in JSON format, in a compressed .ZIP archive. 
+* ```saliency_nms_32x32.npy.zip``` [[**1.3 MB .ZIP**]](saliency/saliency_nms_32x32.npy.zip): Zipped nx32x32 numpy file storing the results of Non-Maximum Suppression calculations on the 32x32 (cropped) pixel versions of the saliency images.
 
 For example, from [```canonical_filename_order.txt```](photos/canonical_filename_order.txt) we know that Image #15974 ("*Woman in leotard posing with elephant*") occupies row #8228 (counting from 0, not 1) in the Canonical Filename Order. The corresponding row 8228 in ```saliency_nms.tsv``` contains 18 tab-separated numbers as follows, indicating that 6 "saliency maxima" have been detected. These saliencies can be displayed using [this small Processing test program](saliency/saliency.pde).
 	
