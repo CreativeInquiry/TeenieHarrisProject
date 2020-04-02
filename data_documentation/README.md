@@ -26,8 +26,9 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 * [OpenFace](#openface)
 * [OpenFace+Microsoft](#openfacemicrosoft)
 * [Analysis: People-in-Images](#analysis--people-in-images)
-* [Analysis: Other](#analysis--other)
 * [Face Ellipses](#face-ellipses)
+* [Face Rects](#face-rects)
+* [Face Nearest Neighbors](#face-nearest-neighbors)
 * [Depth](#depth)
 * [Colorized](#colorized)
 * [Saliency](#saliency)
@@ -56,6 +57,9 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
   * A local copy of this file is also [here](photos/canonical_image_dimensions_1600.tsv).
 * ```photos_images_32x32.npy``` [[**57.89 MB .NPY**](https://storage.googleapis.com/teenieharris/photos/npy32/photos_images_32x32.npy)]
   * Extremely low-resolution (32x32 pixel) versions of the archive photos, encoded into a single Numpy binary file.
+* ```filename_order.txt``` [[**1.01 MB .TXT**](https://storage.googleapis.com/teenieharris/analysis/filename_order.txt)]
+* ```filename_order_box.txt``` [[**464 KB .TXT**](https://storage.googleapis.com/teenieharris/analysis/filename_order_box.txt)]
+* ```filename_order_id.txt``` [[**341 KB .TXT**](https://storage.googleapis.com/teenieharris/analysis/filename_order_id.txt)]
 
 
 ---
@@ -307,19 +311,6 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 
 
 ---
-### Analysis / Other
-
-* ```filename_order.txt``` [[**1.01 MB .TXT**](https://storage.googleapis.com/teenieharris/analysis/filename_order.txt)]
-* ```filename_order_box.txt``` [[**464 KB .TXT**](https://storage.googleapis.com/teenieharris/analysis/filename_order_box.txt)]
-* ```filename_order_id.txt``` [[**341 KB .TXT**](https://storage.googleapis.com/teenieharris/analysis/filename_order_id.txt)]
-
-<img src="analysis/face_neighbors/face_neighbors_json.png" alt="face_neighbors" height="320"/>
-
-* ```face-neighbors.json``` [[**939 KB .JSON**](https://storage.googleapis.com/teenieharris/analysis/face_neighbors/face-neighbors.json)]
-  * The 3,451 closest-matching faces (i.e. with mutual distances under 0.3). 
-
-
----
 ### Face Ellipses
 
 *Images containing (white) oriented ellipses (on a black background) that indicate the locations of faces. The face locations are taken from a mixture of Google, OpenPose, OpenFace and Microsoft (whichever has data). The face orientation angles are taken from Google API or Microsoft API, whichever has data.*
@@ -348,6 +339,73 @@ For example, from [```canonical_filename_order.txt```](photos/canonical_filename
 0.635	0.29	0.079	0.056
 ```
 
+
+---
+### Face Nearest Neighbors
+
+<img src="face_nearest_neighbors/face_neighbors_json.png" alt="face_neighbors" height="320"/>
+
+* ```face_neighbors.json``` [[**939 KB .JSON**]](face_nearest_neighbors/face-neighbors.json) Local copy of below.
+* ```face-neighbors.json``` [[**939 KB .JSON**]](https://storage.googleapis.com/teenieharris/analysis/face_neighbors/face-neighbors.json): The 3,451 closest-matching faces (i.e. with mutual distances under 0.3).
+
+
+#### Face Rects
+
+* ```4-serv-face-boxes.tsv.zip``` [[**2.62 MB .ZIP**]](https://storage.googleapis.com/teenieharris/face_nearest_neighbors/4-serv-face-boxes.tsv.zip): The face rectangles in each image. Each line is of the format `X\tY\tW\tH\tX\tY\tW\tH\t…`, representing the face bounding boxes in one image. Each line corresponds to an image, canonical file order. The data in this file appears to be nearly identical to the rectangles in [```thp_face_rects.tsv.zip```](face_rects/thp_face_rects.tsv.zip) (see above), except that there is slightly higher precision. 
+* ```4-serv-face-boxes.tsv.zip``` [[**2.62 MB .ZIP**]](face_nearest_neighbors/4-serv-face-boxes.tsv.zip): Local (Github) copy of above.
+
+#### Face Nearest Neighbors (Comprehensive)
+
+* ```face-nn7.tsv.zip``` [[**15.31 MB .ZIP**]](face_nearest_neighbors/face-nn7.tsv.zip): Local (Github) copy of below.* ```face-nn7.tsv.zip``` [[**15.31 MB .ZIP**]](https://storage.googleapis.com/teenieharris/face_nearest_neighbors/face-nn7.tsv.zip): This zipped, tab-separated file contains information about the nearest neighbors of faces. Each line corresponds to a Teenie Harris image in canonical filename order, and contains the following information, separated with tabs:
+	* For the 1st face in the current image: the 6 best-matching faces from other images
+	* For the 2nd face in the current image: the 6 best-matching faces from other images
+	* For the 3rd face in the current image: the 6 best-matching faces from other images
+	* Etcetera.
+* For a given face in the current image, best-matching faces from other images are stored in the following format: 
+  * Canonical ID of another image which contains a face that matches the 1st face in the current image.
+  * The bounding box of the 1st face in the current image, represented as a comma-separated quartet (x,y,w,h).
+  * The bounding box of the face that matches the 1st face in the current image, which is in the other image, represented as a comma-separated quartet (x,y,w,h).
+  * The similarity between the 1st face in this image, and that face in the other image, represented as a number in the range (0...1). 
+  * Etcetera.
+
+For example, the Image 493.png (from box Box_087), with canonical order #12, has 5 known faces. The row for this image in the file ```face-nn7.tsv.zip```, reformatted for legibility, looks like the below. Each of the 5 detected faces has associated data describing the 6 best-matching faces from other images:
+
+```
+17730	162,256,64,64	351,226,31,31	0.09755
+7122	162,256,64,64	281,251,31,31	0.12007
+38746	162,256,64,64	260,153,54,53	0.13215
+48225	162,256,64,64	330,81,37,37	0.13340
+17881	162,256,64,64	251,185,37,37	0.13650
+54989	162,256,64,64	85,282,21,21	0.13678
+
+40016	499,129,54,54	250,258,21,21	0.20457
+54343	499,129,54,54	487,293,37,37	0.21016
+34173	499,129,54,54	302,233,31,31	0.21774
+51171	499,129,54,54	358,220,26,26	0.23670
+40015	499,129,54,54	252,245,18,18	0.24313
+41782	499,129,54,54	171,213,54,54	0.26389
+
+25419	571,84,64,64	306,170,111,111	0.21020
+54132	571,84,64,64	265,181,21,22	0.21582
+41643	571,84,64,64	589,185,31,31	0.23174
+31528	571,84,64,64	615,212,45,44	0.23647
+14576	571,84,64,64	375,177,37,37	0.24265
+16886	571,84,64,64	265,231,21,21	0.24290
+
+56221	237,189,53,54	222,177,37,37	0.22786
+17323	237,189,53,54	529,276,37,37	0.23899
+54333	237,189,53,54	234,255,37,37	0.27633
+39319	237,189,53,54	308,243,53,53	0.27791
+29995	237,189,53,54	67,151,26,26	0.27949
+54967	237,189,53,54	333,154,31,31	0.29040
+
+46329	398,189,53,54	627,202,31,31	0.32061
+23672	398,189,53,54	195,224,21,21	0.32249
+36603	398,189,53,54	355,201,37,37	0.32692
+24302	398,189,53,54	177,269,26,26	0.33274
+18172	398,189,53,54	526,311,21,21	0.34124
+29341	398,189,53,54	583,272,37,37	0.34935
+```
 
 ---
 ### Depth
@@ -462,9 +520,58 @@ And
 * ```embeddings_vgg_features.zip``` [[**5.01 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_vgg_features.zip)]
 * ```embeddings_vgg_features_supervised.zip``` [[**4.53 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_vgg_features_supervised.zip)]
 
+Variations of 2D embeddings derived from the application of the InceptionV3 neural network to the *colorized* versions of the Teenie Harris images, provided in both Numpy and TSV formats. Embeddings labeled 'predictions' are derived from the vector of the network's category predictions (dog, car, house, etc.), while those labeled 'features' are vectors derived from the second-to-last layer of the network, and represent the strengths of generic feature components (eye, wheel, window, etc.). Note that the *colorized* versions of the Harris images have been used to improve and bootstrap the results of InceptionV3, by providing coarse estimates of color information where none otherwise exists. 
+
+* ```embedding_inception_features_0.001_02.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.001_02.npy)
+* ```embedding_inception_features_0.001_03.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.001_03.npy)
+* ```embedding_inception_features_0.001_05.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.001_05.npy)
+* ```embedding_inception_features_0.010_02.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.010_02.npy)
+* ```embedding_inception_features_0.010_03.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.010_03.npy)
+* ```embedding_inception_features_0.010_05.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.010_05.npy)
+* ```embedding_inception_features_0.100_02.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.100_02.npy)
+* ```embedding_inception_features_0.100_03.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.100_03.npy)
+* ```embedding_inception_features_0.100_05.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.100_05.npy)
+* ```embedding_inception_predictions_0.001_02.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.001_02.npy)
+* ```embedding_inception_predictions_0.001_03.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.001_03.npy)
+* ```embedding_inception_predictions_0.001_05.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.001_05.npy)
+* ```embedding_inception_predictions_0.010_02.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.010_02.npy)
+* ```embedding_inception_predictions_0.010_03.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.010_03.npy)
+* ```embedding_inception_predictions_0.010_05.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.010_05.npy)
+* ```embedding_inception_predictions_0.100_02.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.100_02.npy)
+* ```embedding_inception_predictions_0.100_03.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.100_03.npy)
+* ```embedding_inception_predictions_0.100_05.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.100_05.npy)
+* ```embedding_inception_features_0.001_02.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.001_02.tsv)
+* ```embedding_inception_features_0.001_03.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.001_03.tsv)
+* ```embedding_inception_features_0.001_05.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.001_05.tsv)
+* ```embedding_inception_features_0.010_02.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.010_02.tsv)
+* ```embedding_inception_features_0.010_03.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.010_03.tsv)
+* ```embedding_inception_features_0.010_05.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.010_05.tsv)
+* ```embedding_inception_features_0.100_02.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.100_02.tsv)
+* ```embedding_inception_features_0.100_03.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.100_03.tsv)
+* ```embedding_inception_features_0.100_05.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.100_05.tsv)
+* ```embedding_inception_predictions_0.001_02.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.001_02.tsv)
+* ```embedding_inception_predictions_0.001_03.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.001_03.tsv)
+* ```embedding_inception_predictions_0.001_05.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.001_05.tsv)
+* ```embedding_inception_predictions_0.010_02.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.010_02.tsv)
+* ```embedding_inception_predictions_0.010_03.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.010_03.tsv)
+* ```embedding_inception_predictions_0.010_05.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.010_05.tsv)
+* ```embedding_inception_predictions_0.100_02.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.100_02.tsv)
+* ```embedding_inception_predictions_0.100_03.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.100_03.tsv)
+* ```embedding_inception_predictions_0.100_05.tsv``` [[**2.2 MB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_predictions_0.100_05.tsv)
+
+Additional embeddings: 
+
+* ```combined_features_m2_0.001_10.tsv```     [[**2.11 MB**]](https://storage.googleapis.com/teenieharris/embeddings/combined_features_m2_0.001_10.tsv)
+* ```combined_features_m4_0.001_10.tsv```     [[**2.11 MB**]](https://storage.googleapis.com/teenieharris/embeddings/combined_features_m4_0.001_10.tsv)
+* ```combined_features_m16_0.001_10.tsv```    [[**2.11 MB**]](https://storage.googleapis.com/teenieharris/embeddings/combined_features_m16_0.001_10.tsv)
+* ```combined_features_m32_0.001_10.tsv```    [[**2.11 MB**]](https://storage.googleapis.com/teenieharris/embeddings/combined_features_m32_0.001_10.tsv)
+* ```combined_features_m128_0.001_10.tsv```   [[**2.11 MB**]](https://storage.googleapis.com/teenieharris/embeddings/combined_features_m128_0.001_10.tsv)
+* ```desc_features_0.010_10.tsv```            [[**2.11 MB**]](https://storage.googleapis.com/teenieharris/embeddings/desc_features_0.010_10.tsv)
+* ```new_combined_features_m4_0.001_10.tsv``` [[**2.11 MB**]](https://storage.googleapis.com/teenieharris/embeddings/new_combined_features_m4_0.001_10.tsv)
+
 
 ---
-### Assignments
+### Assignments & Sortings
 
 *Numpy (Python) files in which some of the above embeddings are rectified into 2-dimensional square grids.*
 
@@ -472,11 +579,33 @@ And
 * ```0.100_03-assignment_openface.npy``` [[**1.87 MB .NPY**](https://storage.googleapis.com/teenieharris/assignments/0.100_03-assignment_openface.npy)]
 * ```0.100_03-assignment_saliency.npy``` [[**461.4 KB .NPY**](https://storage.googleapis.com/teenieharris/assignments/0.100_03-assignment_saliency.npy)]
 
+Sortings (each is about 500-600 KB): 
+
+* [```rect-sort-age-median.tsv```   ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age-median.tsv)* [```rect-sort-bytes_per_pix.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-bytes_per_pix.tsv)* [```rect-sort-color-avg-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg-rev.tsv)* [```rect-sort-color-avg.tsv```    ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg.tsv)* [```rect-sort-color-median-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-median-rev.tsv)* [```rect-sort-color-median.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-median.tsv)* [```rect-sort-color-stddev-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-stddev-rev.tsv)* [```rect-sort-color-stddev.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-stddev.tsv)* [```rect-sort-filesize.tsv```     ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-filesize.tsv)* [```rect-sort-n-faces.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-n-faces.tsv)* [```rect-sort-year.tsv```         ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-year.tsv)
+* [```rect-sort-age_avg.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_avg.tsv)
+* [```rect-sort-age_bigface.tsv```  ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_bigface.tsv)
+* [```rect-sort-age_max.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_max.tsv)
+* [```rect-sort-age_min.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_min.tsv)
+* [```rect-sort-area_bigface.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-area_bigface.tsv)
+* [```rect-sort-pcarea_faces.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-pcarea_faces.tsv)
+* [```rect-sort-acc.tsv```          ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-acc.tsv)* [```rect-teenie-mosaic.tsv```     ](https://storage.googleapis.com/teenieharris/sorts/rect-teenie-mosaic.tsv)
+
+#### Embeddings and Sortings Used in the (Final) CMOA Installation
+
+* **Visual Similarity:** [```embedding_inception_features_0.001_05.tsv```](): <br />Photographs are clustered by their visual similarity
+* **Keywords:** [```new_combined_features_m4_0.001_10.tsv```](https://storage.googleapis.com/teenieharris/embeddings/new_combined_features_m4_0.001_10.tsv): <br />Photographs are clustered by the similarity of their textual descriptions. 
+* **Year:** [```rect-sort-year.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-year.tsv): <br />Photographs are sorted by the (estimated) year in which they were taken, from earliest (top) to most recent (bottom). Images in the top region have no year data.
+* **Age:** [```rect-sort-age-median.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age-median.tsv): <br />Photographs are sorted by the average (estimated) age of the people in each image, from youngest (top) to oldest (bottom). Images in the top region have no age data.
+* **Headcount:** [```rect-sort-n-faces.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-n-faces.tsv): <br />Photographs are sorted by the (estimated) number of faces in each image, from fewest (top) to most (bottom). In the top region, faces were not detected.
+* **Luminosity:** [```rect-sort-color-avg-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg-rev.tsv): <br />Photographs are sorted by their average brightness, from lightest (top) to darkest (bottom).
+* **Accession Number:** [```rect-sort-acc.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-acc.tsv): <br />Photographs are sorted by their accession number: the unique identifier assigned when they entered the Museum's collection.
+* **Mosaic:** [```rect-teenie-mosaic.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-teenie-mosaic.tsv): <br />Photographs are organized so as to produce a photomosaic of Teenie Harris.
+
 
 ---
 ### Thumbnail Images 64x64
 
-Center-cropped 64x64-pixel monochrome thumbnail images of the Teenie Harris archive, re-formatted into compilation images 4096 pixels wide, *with one thumbnail-image per pixel-row*. Note that these thumbnail images have been "unwrapped" and are not human-viewable in a traditional sense. The rows are presented in canonical order, in groups of 10,000. 
+Center-cropped 64x64-pixel monochrome thumbnail images of the Teenie Harris archive, re-formatted into compilation images 4096 pixels wide, *with one thumbnail-image per pixel-row*. Note that these thumbnail images have been "unwrapped" and are not human-viewable in a traditional sense. The rows are presented in canonical order, in groups of 10,000. Note also that a small margin has also been removed, to avoid black borders on the thumbnails.
 
 <img src="thumbs/thumbs_64x64_first256.png" alt="First 256 rows (sample image)" width="512" height="32"/><br />
 *The first 256 rows of a sample "compilation" image of 64x64 thumbnails (i.e. 4096x256).* 

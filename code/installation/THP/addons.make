@@ -1,0 +1,6 @@
+ofxCv
+ofxGui
+ofxMultitouch
+ofxOpenCv
+ofxOsc
+ofxThreadedImageLoader
