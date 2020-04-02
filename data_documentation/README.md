@@ -592,6 +592,8 @@ Sortings (each is about 500-600 KB):
 
 #### Embeddings and Sortings Used in the (Final) CMOA Installation
 
+All of these files are also linked above. 
+
 * **Visual Similarity:** [```embedding_inception_features_0.001_05.tsv```](): <br />Photographs are clustered by their visual similarity
 * **Keywords:** [```new_combined_features_m4_0.001_10.tsv```](https://storage.googleapis.com/teenieharris/embeddings/new_combined_features_m4_0.001_10.tsv): <br />Photographs are clustered by the similarity of their textual descriptions. 
 * **Year:** [```rect-sort-year.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-year.tsv): <br />Photographs are sorted by the (estimated) year in which they were taken, from earliest (top) to most recent (bottom). Images in the top region have no year data.
