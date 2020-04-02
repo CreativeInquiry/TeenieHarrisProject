@@ -2,12 +2,14 @@
 
 #### This document provides information about, and links to, key data resources for the CMU+CMoA Teenie Harris Archive Analysis Project. 
 
-Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https://console.cloud.google.com/storage/browser/teenieharris). The majority of the resources described here are of two main types: 
+Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https://console.cloud.google.com/storage/browser/teenieharris); some smaller files are also duplicated in this GitHUb repository. The majority of the resources described here are of two main types: 
 * JSON, TSV and other text files that provide numeric and label descriptions of the content of photos (such as the coordinates of faces, identified object tags, etcetera).
 * PNG image files and NPY (Numpy) binary archives of images, which contain pixelwise information about corresponding photographs (such as estimates of an image's depth, saliency, etc.).
 
 <img src="photos/png640/15974.png" alt="Woman with Elephant by Teenie Harris" height="320"/><br />
-*Woman in leotard posing with elephant, possibly for a circus* (Box 100, Image #15974) by Charles 'Teenie' Harris, c. 1950-1970 (© Carnegie Museum of Art, Charles “Teenie” Harris Archive, [2001.35.8192](https://collection.cmoa.org/objects/afb9ec17-bb48-440b-92d4-8f747ef0b83e))
+*Woman in leotard posing with elephant, possibly for a circus* (Box 100, Image #15974) by Charles 'Teenie' Harris, c. 1950-1970 (© Carnegie Museum of Art, Charles “Teenie” Harris Archive, [2001.35.8192](https://collection.cmoa.org/objects/afb9ec17-bb48-440b-92d4-8f747ef0b83e)). 
+
+Note that there is some redundancy of information between various files. For example: the dates that photographs were taken are stored in ```thp_year_metadata.json```, ```thp_meta_data.json```, and (in a different way) ```descriptions.tsv```; likewise, the number of faces detected in an image is stored (in various explicit or implicit ways) in files including ```thp_meta_data.json```, ```people_in_images_json.zip```, ```4-serv-face-boxes.tsv.zip```, and ```thp_face_rects.tsv.zip```.
 
 
 ---
@@ -71,7 +73,8 @@ Large (>1MB) data files linked herein are hosted at [Google Cloud Storage](https
 * ```descriptions.tsv.zip``` [[**4.3MB .ZIP**](descriptions/descriptions.tsv.zip)]
 
 This is a headerless, tab-separated file which contains the following fields:
-* imageName (not including image type file extension) 
+
+* imageName (not including image filetype extension, e.g. ".png") 
 * textual description
 * date (or date range)
 * CMOA acquisition number
@@ -121,7 +124,7 @@ Two example rows from this text file are provided here:
 	* `COLOR_STDDEV`: standard deviation of grayscale levels in the entire image
 	* `YEAR`: year the photo was taken; a float value based on the date. Duplicate of data stored in ```thp_year_metadata.json```.
 
-Facial age data in this file is from the [Microsoft Cognitive Services API](#microsoft-cognitive-services-api). Year data is from the Carnegie Museum of Art's Teenie Harris Archive team. Here are two example entries from ```thp_meta_data.json.zip```:
+The `N_FACES` field is calculated from a geometric union of data provided by Google, OpenPose, OpenFace and Microsoft. Facial age data in this file is from the [Microsoft Cognitive Services API](#microsoft-cognitive-services-api). Year data is derived from the Carnegie Museum of Art's Teenie Harris Archive team. Here are two example entries from ```thp_meta_data.json.zip```:
 
 ```
 {"FILE":"15236.png", "CANONICAL": 8141, "N_FACES": 2, 
@@ -187,10 +190,10 @@ Some of the data produced by the Imagga service reveals questionable biases in t
 ---
 ### Google Cloud Vision API
 
-*Results of analysis using the [Google Cloud Vision API](https://cloud.google.com/vision/overview/docs/) on the TeenieHarris 1600-pixel PNG images. Information includes face landmarks,                  object recognition, facial expression analysis, and optical character recognition (OCR).*
+*Results of analysis using the [Google Cloud Vision API](https://cloud.google.com/vision/overview/docs/) on the TeenieHarris 1600-pixel PNG images. Information includes face landmarks, object recognition, facial expression analysis, and optical character recognition (OCR).*
 
 * ```google_analyses_of_teenie_harris_archive.zip``` [[**321.21MB .ZIP**](https://storage.googleapis.com/teenieharris/google/json/google_analyses_of_teenie_harris_archive.zip)]
-  * ZIP archive containing 59,278 JSON files, each describing a corresponding  Teenie Harris image. Input images were scaled to 1600 pixels in their maximum dimension. 
+  * ZIP archive containing 59,278 JSON files, each describing a corresponding Teenie Harris image. Input images were scaled to 1600 pixels in their maximum dimension. 
   * [Example JSON file](google/json/visionResult_Box100_15974.json) for image #15974.
 
 
@@ -206,7 +209,7 @@ Some of the data produced by the Imagga service reveals questionable biases in t
   * Single .BSON ("Binary JSON") file, a flat file created by MongoDB containing all of the Microsoft face data.
 * ```faces.metadata.json``` [[**84 bytes**](https://storage.googleapis.com/teenieharris/microsoft/bson/faces.metadata.json)]
 * ```imageOidAssociationTable.tsv.zip``` [[**427.79 KB**](https://storage.googleapis.com/teenieharris/microsoft/tsv/imageOidAssociationTable.tsv.zip)]
-  * This is a zipped .TSV (tab-separated value) file which links the Archive's box and image filenames to the imageOid UUID from the Microsoft database. The head of the file looks like this: 
+  * This is a zipped .TSV (tab-separated value) file which links the Archive's box and image filenames to the imageOid UUID from the Microsoft database. This file has a header row, and the top of the file looks like this: 
   
 ```
 imageBox	imageName	imageOid
@@ -326,7 +329,7 @@ Box_001	686.png	583dfcfd1841423bb565ee29
 ---
 ### Face Rects
 
-*Numeric data storing rectangles that indicate the locations of faces in the Teenie Harris images. The face rectangles are derived from the union of Google, OpenPose, OpenFace and Microsoft (whichever has data). Where different APIs have produced small differences in detected rectangles, the rectangles here are an average of their results.*
+*Numeric data storing rectangles that indicate the locations of faces in the Teenie Harris images. The face rectangles are derived from the union of Google, OpenPose, OpenFace and Microsoft (whichever has data). Where different APIs have produced small differences in detected rectangles, the rectangles stored here are an average of their results.*
 
 <img src="face_rects/15974_face_rects.png" alt="Example face-ellipse image" height="320"/><br />*Face rect(s) for Image #15974.*
 
@@ -343,6 +346,8 @@ For example, from [```canonical_filename_order.txt```](photos/canonical_filename
 ---
 ### Face Nearest Neighbors
 
+*With the help of OpenFace/dLib, many faces not only have landmark data (eye locations, etc.) but also have 128-dimensional feature vectors that describe them in abstract 'face space'. The files in this section provide information about faces whose vectors match up well. Note that there is no guarantee that two faces with closely-matching feature vectors actually represent the same person.*
+
 <img src="face_nearest_neighbors/face_neighbors_json.png" alt="face_neighbors" height="320"/>
 
 * ```face_neighbors.json``` [[**939 KB .JSON**]](face_nearest_neighbors/face-neighbors.json) Local copy of below.
@@ -356,6 +361,8 @@ For example, from [```canonical_filename_order.txt```](photos/canonical_filename
 
 #### Face Nearest Neighbors (Comprehensive)
 
+*The Teenie Harris Archive of ~60,000 images contains approximately ~250,000 faces. Many people are represented several times. The files here delineate, for every face in the archive, the closest-matching faces from other images.* 
+
 * ```face-nn7.tsv.zip``` [[**15.31 MB .ZIP**]](face_nearest_neighbors/face-nn7.tsv.zip): Local (Github) copy of below.* ```face-nn7.tsv.zip``` [[**15.31 MB .ZIP**]](https://storage.googleapis.com/teenieharris/face_nearest_neighbors/face-nn7.tsv.zip): This zipped, tab-separated file contains information about the nearest neighbors of faces. Each line corresponds to a Teenie Harris image in canonical filename order, and contains the following information, separated with tabs:
 	* For the 1st face in the current image: the 6 best-matching faces from other images
 	* For the 2nd face in the current image: the 6 best-matching faces from other images
@@ -368,7 +375,7 @@ For example, from [```canonical_filename_order.txt```](photos/canonical_filename
   * The similarity between the 1st face in this image, and that face in the other image, represented as a number in the range (0...1). 
   * Etcetera.
 
-For example, the Image 493.png (from box Box_087), with canonical order #12, has 5 known faces. The row for this image in the file ```face-nn7.tsv.zip```, reformatted for legibility, looks like the below. Each of the 5 detected faces has associated data describing the 6 best-matching faces from other images:
+For example, Image 493.png (from box Box_087), with canonical order #12, has 5 known faces. The row for this image in the file ```face-nn7.tsv.zip```, reformatted here for legibility, looks like the below. Each of these 5 detected faces has associated data describing the 6 faces from other images that best match it:
 
 ```
 17730	162,256,64,64	351,226,31,31	0.09755
@@ -449,7 +456,7 @@ For example, the Image 493.png (from box Box_087), with canonical order #12, has
 ---
 ### Saliency
 
-*An archive of .PNG images that represent the estimated pixelwise "saliency" in every Teenie Harris image, as estimated by [SalGAN](https://github.com/imatge-upc/saliency-salgan-2017) ("SalGAN: Visual Saliency Prediction with Generative Adversarial Networks"). To generalize broadly, "saliency" appears to encode things like faces and text.*
+*A collection of .PNG images that represent the estimated pixelwise "saliency" in every Teenie Harris image, as estimated by [SalGAN](https://github.com/imatge-upc/saliency-salgan-2017) ("SalGAN: Visual Saliency Prediction with Generative Adversarial Networks"). To generalize broadly, "saliency" appears to encode things like faces and text.*
 
 <img src="saliency/jpg640/15974.jpg" alt="Saliency" height="320"/><br />*Estimated saliency map for Image #15974.*
   	
@@ -488,6 +495,8 @@ The corresponding line in ```saliency_nms.json.zip``` (unzipped) appears as:
 
 *The Inception v3 analysis was performed with Kyle McDonald's notebook, ["Image Classification and Similarity"](https://github.com/kylemcdonald/ml-examples/blob/master/workshop/image_similarity/Image%20Classification%20and%20Similarity.ipynb). The VGG16 analysis was performed using Gene Kogan's OpenFrameworks project, ["Example-Encode"](https://github.com/kylemcdonald/ofxCcv/tree/master/example-encode).*
 
+*Note: These features were calculated on the monochrome (grayscale) versions of the Teenie Harris Archive.* 
+
 * ```features_inceptionv3_canonical.npy``` [[**926.22 MB .NPY**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/features_inceptionv3_canonical.npy)]
 * ```predictions_inceptionv3_canonical.npy``` [[**455.87 MB .NPY**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/predictions_inceptionv3_canonical.npy)]
 * ```features_inceptionv3.csv.zip``` [[**422.83 MB .ZIP**](https://storage.googleapis.com/teenieharris/dcnn/inceptionv3/features_inceptionv3.csv.zip)]
@@ -520,7 +529,7 @@ And
 * ```embeddings_vgg_features.zip``` [[**5.01 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_vgg_features.zip)]
 * ```embeddings_vgg_features_supervised.zip``` [[**4.53 MB .ZIP**](https://storage.googleapis.com/teenieharris/embeddings/embeddings_vgg_features_supervised.zip)]
 
-Variations of 2D embeddings derived from the application of the InceptionV3 neural network to the *colorized* versions of the Teenie Harris images, provided in both Numpy and TSV formats. Embeddings labeled 'predictions' are derived from the vector of the network's category predictions (dog, car, house, etc.), while those labeled 'features' are vectors derived from the second-to-last layer of the network, and represent the strengths of generic feature components (eye, wheel, window, etc.). Note that the *colorized* versions of the Harris images have been used to improve and bootstrap the results of InceptionV3, by providing coarse estimates of color information where none otherwise exists. 
+Below are variations of 2D embeddings derived from the application of the InceptionV3 neural network to the *colorized* versions of the Teenie Harris images, provided in both Numpy and TSV formats. Embeddings labeled 'predictions' are derived from the vector of the network's category predictions (dog, car, house, etc.), while those labeled 'features' are vectors derived from the second-to-last layer of the network, and represent the strengths of generic feature components (eye, wheel, window, etc.). Note that the *colorized* versions of the Harris images have been used to improve and bootstrap the results of InceptionV3, by providing coarse estimates of color information where none otherwise exists. 
 
 * ```embedding_inception_features_0.001_02.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.001_02.npy)
 * ```embedding_inception_features_0.001_03.npy``` [[**474 KB**]](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.001_03.npy)
@@ -592,7 +601,7 @@ Sortings (each is about 500-600 KB):
 
 #### Embeddings and Sortings Used in the (Final) CMOA Installation
 
-All of these files are also linked above. 
+These files contain arrangements of the 59278 Teenie Harris images into a 2D grid, as used in the CMOA interactive installation. All of these files are also linked above. 
 
 * **Visual Similarity:** [```embedding_inception_features_0.001_05.tsv```](): <br />Photographs are clustered by their visual similarity
 * **Keywords:** [```new_combined_features_m4_0.001_10.tsv```](https://storage.googleapis.com/teenieharris/embeddings/new_combined_features_m4_0.001_10.tsv): <br />Photographs are clustered by the similarity of their textual descriptions. 
