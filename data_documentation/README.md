@@ -598,7 +598,8 @@ Additional embeddings:
 
 Sortings (each is about 500-600 KB): 
 
-* [```rect-sort-age-median.tsv```   ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age-median.tsv)* [```rect-sort-age_avg.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_avg.tsv)
+* [```rect-sort-age_avg.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_avg.tsv)
+* [```rect-sort-age-median.tsv```   ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age-median.tsv)
 * [```rect-sort-age_bigface.tsv```  ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_bigface.tsv)
 * [```rect-sort-age_max.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_max.tsv)
 * [```rect-sort-age_min.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_min.tsv)* [```rect-sort-bytes_per_pix.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-bytes_per_pix.tsv)* [```rect-sort-color-avg-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg-rev.tsv)* [```rect-sort-color-avg.tsv```    ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg.tsv)* [```rect-sort-color-median-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-median-rev.tsv)* [```rect-sort-color-median.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-median.tsv)* [```rect-sort-color-stddev-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-stddev-rev.tsv)* [```rect-sort-color-stddev.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-stddev.tsv)* [```rect-sort-filesize.tsv```     ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-filesize.tsv)* [```rect-sort-n-faces.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-n-faces.tsv)* [```rect-sort-year.tsv```         ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-year.tsv)
@@ -621,7 +622,18 @@ These files contain arrangements of the 59278 Teenie Harris images into a 2D gri
 
 #### Structure of the Assignments files
 
+Consider [```rect-sort-age_avg.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_avg.tsv). This file represents an assignment for each image, to a position in a grid on the screen, where all of the images have been sorted according to the average estimated age of their detected faces. The first lines of this file look like the following: 
 
+```
+ 3.6	2.6
+ 9.6	-3.0
+ 3.4	3.1
+-9.2	9.9
+-3.2	-0.7
+12.5	6.7
+```
+
+These numbers indicate positions on a grid, whose X-values range from -10.7 to 10.6 (inclusive), and whose Y-values range from -13.8 to 13.8 (inclusive), in increments of 0.1. This produces a grid of 214x277, i.e. with precisely 59278 positions, one for each Teenie Harris image. The lists correspond to canonical order. 
 
 
 ---
