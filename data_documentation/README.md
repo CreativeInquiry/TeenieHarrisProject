@@ -276,7 +276,7 @@ Each of these arrays contains interleaved triplets of data, organized: [x, y, z,
 ---
 ### OpenFace
 
-*[OpenFace](https://cmusatyalab.github.io/openface/) is a Python and Torch implementation of face recognition with deep neural networks. Faces are described with  a bounding box, and a 128-dimensional vector of face-specific floating-point numbers.*
+*[OpenFace](https://cmusatyalab.github.io/openface/) is a Python and Torch implementation of face recognition with deep neural networks. Faces are described with a bounding box, and a 128-dimensional vector of face-specific floating-point numbers. The 128 numbers are stored in the `rep` field of the JSON files.*
 
 <img src="openface/openface_json.png" alt="OpenFace JSON structure" height="192"/>
 
@@ -304,7 +304,7 @@ Each of these arrays contains interleaved triplets of data, organized: [x, y, z,
   * [Example JSON file](openface_microsoft/json/15974.json) for image #15974.
   * Face bounding rect coordinates in these files are relative to an 800x800 image bound.
   * Note that this bundle only includes data for faces that are detected by *both* Microsoft (which provides estimates of age and gender) and OpenFace (which provides 128-dimensional face descriptors). This bundle does *not* contain information for faces that are not detected by both of these services.
-  * In these JSON files, face gender and age data is encoded in a one-hot field entitled `genderAndAgeOneHotData`, as follows:
+  * In these JSON files, face gender and age data is encoded in a "one-hot" field entitled `genderAndAgeOneHotData`, as follows:
 
 > * Field #0: Is this data valid? 1 if Yes.
 > * Fields #1 and #2: Gender: 00 (none), 01 (male), 10 (female).
@@ -354,7 +354,7 @@ For example, from [```canonical_filename_order.txt```](photos/canonical_filename
 ---
 ### Face Nearest Neighbors
 
-*With the help of OpenFace/dLib, many faces not only have landmark data (eye locations, etc.) but also have 128-dimensional feature vectors that describe them in abstract 'face space'. The files in this section provide information about faces whose vectors match up well. Note that there is no guarantee that two faces with closely-matching feature vectors actually represent the same person.*
+*With the help of OpenFace/dLib, many faces not only have landmark data (eye locations, etc.) but many (but not all) also have 128-dimensional feature vectors that describe them in abstract 'face space'. The files in this section provide information about faces whose vectors match up well. Note that there is no guarantee that two faces with closely-matching feature vectors actually represent the same person.*
 
 <img src="face_nearest_neighbors/face_neighbors_json.png" alt="face_neighbors" height="320"/>
 
@@ -369,7 +369,7 @@ For example, from [```canonical_filename_order.txt```](photos/canonical_filename
 
 #### Face Nearest Neighbors (Comprehensive)
 
-*The Teenie Harris Archive of ~60,000 images contains approximately ~250,000 faces. Many people are represented several times. The files here delineate, for every face in the archive, the closest-matching faces from other images.* 
+*The Teenie Harris Archive of ~60,000 images contains approximately ~250,000 faces. Many people are represented several times. The files here list, for every face in the archive, the closest-matching faces from other images.* 
 
 * ```face-nn7.tsv.zip``` [[**15.31 MB .ZIP**]](face_nearest_neighbors/face-nn7.tsv.zip): Local (Github) copy of below.* ```face-nn7.tsv.zip``` [[**15.31 MB .ZIP**]](https://storage.googleapis.com/teenieharris/face_nearest_neighbors/face-nn7.tsv.zip): This zipped, tab-separated file contains information about the nearest neighbors of faces. Each line corresponds to a Teenie Harris image in canonical filename order, and contains the following information, separated with tabs:
 	* For the 1st face in the current image: the 6 best-matching faces from other images
