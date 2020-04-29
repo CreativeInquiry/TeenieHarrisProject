@@ -227,6 +227,14 @@ Box_001	686.png	583dfcfd1841423bb565ee29
   * 59,278 JSON files containing skeletons (etc.) corresponding to images in the Teenie Harris photo archive.
   * [Example JSON file](openpose/json/15974_keypoints.json) for image #15974.
 
+The relevant fields in this JSON file are as follows: 
+* `pose_keypoints_2d` array contains data for 18 points
+* `face_keypoints_2d` array contains data for 70 points
+* `hand_left_keypoints_2d` array contains data for 21 points
+* `hand_right_keypoints_2d` array contains data for 21 points
+
+Each of these arrays contains interleaved triplets of data, organized: [x, y, z, x, y, z, ...]. The accuracy or meaning of the 'z' values has not been tested or validated.
+
 
 ---
 ### Detectron
