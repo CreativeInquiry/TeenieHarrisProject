@@ -37,7 +37,7 @@ Note that there is some redundancy of information between various files. For exa
 * [Saliency Maxima](#saliency-maxima)
 * [DCNN](#dcnn)
 * [Embeddings](#embeddings)
-* [Assignments](#assignments)
+* [Assignments & Sortings](#assignments--sortings)
 * [Thumbnails 64x64](#thumbnail-images-64x64)
 * [Thumbnails 256x256](#thumbnail-images-256x256)
 * [Thumbnails 256x256, Colorized](#thumbnail-images-256x256-colorized)
@@ -598,20 +598,19 @@ Additional embeddings:
 
 Sortings (each is about 500-600 KB): 
 
-* [```rect-sort-age-median.tsv```   ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age-median.tsv)* [```rect-sort-bytes_per_pix.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-bytes_per_pix.tsv)* [```rect-sort-color-avg-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg-rev.tsv)* [```rect-sort-color-avg.tsv```    ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg.tsv)* [```rect-sort-color-median-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-median-rev.tsv)* [```rect-sort-color-median.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-median.tsv)* [```rect-sort-color-stddev-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-stddev-rev.tsv)* [```rect-sort-color-stddev.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-stddev.tsv)* [```rect-sort-filesize.tsv```     ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-filesize.tsv)* [```rect-sort-n-faces.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-n-faces.tsv)* [```rect-sort-year.tsv```         ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-year.tsv)
-* [```rect-sort-age_avg.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_avg.tsv)
+* [```rect-sort-age-median.tsv```   ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age-median.tsv)* [```rect-sort-age_avg.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_avg.tsv)
 * [```rect-sort-age_bigface.tsv```  ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_bigface.tsv)
 * [```rect-sort-age_max.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_max.tsv)
-* [```rect-sort-age_min.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_min.tsv)
+* [```rect-sort-age_min.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_min.tsv)* [```rect-sort-bytes_per_pix.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-bytes_per_pix.tsv)* [```rect-sort-color-avg-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg-rev.tsv)* [```rect-sort-color-avg.tsv```    ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg.tsv)* [```rect-sort-color-median-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-median-rev.tsv)* [```rect-sort-color-median.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-median.tsv)* [```rect-sort-color-stddev-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-stddev-rev.tsv)* [```rect-sort-color-stddev.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-stddev.tsv)* [```rect-sort-filesize.tsv```     ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-filesize.tsv)* [```rect-sort-n-faces.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-n-faces.tsv)* [```rect-sort-year.tsv```         ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-year.tsv)
 * [```rect-sort-area_bigface.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-area_bigface.tsv)
 * [```rect-sort-pcarea_faces.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-pcarea_faces.tsv)
 * [```rect-sort-acc.tsv```          ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-acc.tsv)* [```rect-teenie-mosaic.tsv```     ](https://storage.googleapis.com/teenieharris/sorts/rect-teenie-mosaic.tsv)
 
-#### Embeddings and Sortings Used in the (Final) CMOA Installation
+#### Assignments and Sortings Used in the (Final) CMOA Installation
 
 These files contain arrangements of the 59278 Teenie Harris images into a 2D grid, as used in the CMOA interactive installation. All of these files are also linked above. 
 
-* **Visual Similarity:** [```embedding_inception_features_0.001_05.tsv```](): <br />Photographs are clustered by their visual similarity
+* **Visual Similarity:** [```embedding_inception_features_0.001_05.tsv```](https://storage.googleapis.com/teenieharris/embeddings/inception_from_colorized/embedding_inception_features_0.001_05.npy): <br />Photographs are clustered by their visual similarity
 * **Keywords:** [```new_combined_features_m4_0.001_10.tsv```](https://storage.googleapis.com/teenieharris/embeddings/new_combined_features_m4_0.001_10.tsv): <br />Photographs are clustered by the similarity of their textual descriptions. 
 * **Year:** [```rect-sort-year.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-year.tsv): <br />Photographs are sorted by the (estimated) year in which they were taken, from earliest (top) to most recent (bottom). Images in the top region have no year data.
 * **Age:** [```rect-sort-age-median.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age-median.tsv): <br />Photographs are sorted by the average (estimated) age of the people in each image, from youngest (top) to oldest (bottom). Images in the top region have no age data.
@@ -619,6 +618,10 @@ These files contain arrangements of the 59278 Teenie Harris images into a 2D gri
 * **Luminosity:** [```rect-sort-color-avg-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg-rev.tsv): <br />Photographs are sorted by their average brightness, from lightest (top) to darkest (bottom).
 * **Accession Number:** [```rect-sort-acc.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-acc.tsv): <br />Photographs are sorted by their accession number: the unique identifier assigned when they entered the Museum's collection.
 * **Mosaic:** [```rect-teenie-mosaic.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-teenie-mosaic.tsv): <br />Photographs are organized so as to produce a photomosaic of Teenie Harris.
+
+#### Structure of the Assignments files
+
+
 
 
 ---
