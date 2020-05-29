@@ -358,7 +358,7 @@ For example, from [```canonical_filename_order.txt```](photos/canonical_filename
 
 <img src="face_nearest_neighbors/face_neighbors_json.png" alt="face_neighbors" height="320"/>
 
-* ```face_neighbors.json``` [[**939 KB .JSON**]](face_nearest_neighbors/face-neighbors.json) Local copy of below.
+* ```face_neighbors.json``` [[**939 KB .JSON**]](face_nearest_neighbors/face_neighbors.json) Local copy of below.
 * ```face-neighbors.json``` [[**939 KB .JSON**]](https://storage.googleapis.com/teenieharris/analysis/face_neighbors/face-neighbors.json): The 3,451 closest-matching faces (i.e. with mutual distances under 0.3).
 
 
@@ -371,7 +371,8 @@ For example, from [```canonical_filename_order.txt```](photos/canonical_filename
 
 *The Teenie Harris Archive of ~60,000 images contains approximately ~250,000 faces. Many people are represented several times. The files here list, for every face in the archive, the closest-matching faces from other images.* 
 
-* ```face-nn7.tsv.zip``` [[**15.31 MB .ZIP**]](face_nearest_neighbors/face-nn7.tsv.zip): Local (Github) copy of below.* ```face-nn7.tsv.zip``` [[**15.31 MB .ZIP**]](https://storage.googleapis.com/teenieharris/face_nearest_neighbors/face-nn7.tsv.zip): This zipped, tab-separated file contains information about the nearest neighbors of faces. Each line corresponds to a Teenie Harris image in canonical filename order, and contains the following information, separated with tabs:
+* ```face-nn7.tsv.zip``` [[**15.31 MB .ZIP**]](face_nearest_neighbors/face-nn7.tsv.zip): Local (Github) copy of below.
+* ```face-nn7.tsv.zip``` [[**15.31 MB .ZIP**]](https://storage.googleapis.com/teenieharris/face_nearest_neighbors/face-nn7.tsv.zip): This zipped, tab-separated file contains information about the nearest neighbors of faces. Each line corresponds to a Teenie Harris image in canonical filename order, and contains the following information, separated with tabs:
 	* For the 1st face in the current image: the 6 best-matching faces from other images
 	* For the 2nd face in the current image: the 6 best-matching faces from other images
 	* For the 3rd face in the current image: the 6 best-matching faces from other images
@@ -602,10 +603,21 @@ Sortings (each is about 500-600 KB):
 * [```rect-sort-age-median.tsv```   ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age-median.tsv)
 * [```rect-sort-age_bigface.tsv```  ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_bigface.tsv)
 * [```rect-sort-age_max.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_max.tsv)
-* [```rect-sort-age_min.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_min.tsv)* [```rect-sort-bytes_per_pix.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-bytes_per_pix.tsv)* [```rect-sort-color-avg-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg-rev.tsv)* [```rect-sort-color-avg.tsv```    ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg.tsv)* [```rect-sort-color-median-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-median-rev.tsv)* [```rect-sort-color-median.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-median.tsv)* [```rect-sort-color-stddev-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-stddev-rev.tsv)* [```rect-sort-color-stddev.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-stddev.tsv)* [```rect-sort-filesize.tsv```     ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-filesize.tsv)* [```rect-sort-n-faces.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-n-faces.tsv)* [```rect-sort-year.tsv```         ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-year.tsv)
+* [```rect-sort-age_min.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-age_min.tsv)
+* [```rect-sort-bytes_per_pix.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-bytes_per_pix.tsv)
+* [```rect-sort-color-avg-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg-rev.tsv)
+* [```rect-sort-color-avg.tsv```    ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-avg.tsv)
+* [```rect-sort-color-median-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-median-rev.tsv)
+* [```rect-sort-color-median.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-median.tsv)
+* [```rect-sort-color-stddev-rev.tsv```](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-stddev-rev.tsv)
+* [```rect-sort-color-stddev.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-color-stddev.tsv)
+* [```rect-sort-filesize.tsv```     ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-filesize.tsv)
+* [```rect-sort-n-faces.tsv```      ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-n-faces.tsv)
+* [```rect-sort-year.tsv```         ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-year.tsv)
 * [```rect-sort-area_bigface.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-area_bigface.tsv)
 * [```rect-sort-pcarea_faces.tsv``` ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-pcarea_faces.tsv)
-* [```rect-sort-acc.tsv```          ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-acc.tsv)* [```rect-teenie-mosaic.tsv```     ](https://storage.googleapis.com/teenieharris/sorts/rect-teenie-mosaic.tsv)
+* [```rect-sort-acc.tsv```          ](https://storage.googleapis.com/teenieharris/sorts/rect-sort-acc.tsv)
+* [```rect-teenie-mosaic.tsv```     ](https://storage.googleapis.com/teenieharris/sorts/rect-teenie-mosaic.tsv)
 
 #### Assignments and Sortings Used in the (Final) CMOA Installation
 
