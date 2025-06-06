@@ -1,1 +1,10 @@
 data/
+.DS_Store
+data_documentation/.DS_Store
+data_documentation/analysis/.DS_Store
+data_documentation/detectron/.DS_Store
+data_documentation/imagga/.DS_Store
+data_documentation/photos/.DS_Store
+sketchbooks/.DS_Store
+sketchbooks/DetectronContourRenderer/.DS_Store
+code/.DS_Store
